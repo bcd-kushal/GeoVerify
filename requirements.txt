@@ -1,0 +1,12 @@
+gunicorn
+aiohttp
+aiosignal
+async-timeout
+attrs
+charset-normalizer
+frozenlist
+idna
+multidict
+yarl
+python-dotenv
+pymongo
