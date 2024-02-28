@@ -1,8 +1,12 @@
 # GeoVerify
 
-Free API to fetch geolocation data or verify if a city/region/country does actually exist
+<img style="width:24px" title="python3" src="https://user-images.githubusercontent.com/25181517/183423507-c056a6f9-1ba8-4312-a350-19bcbc5a8697.png"/> &nbsp;
+<img style="width:24px" title="flask" src="https://github.com/bcd-kushal/Kushal-Kumar/assets/96081625/20a11017-9e2b-45f2-ae6e-d8d38e0058b0"/> &nbsp;
+<img style="height:26px" title="railway" src="https://railway.app/brand/logo-light.png"/> &nbsp;
 
-API endpoint: https://geoverify.kushalkumarsaha.com/
+https://geoverify.kushalkumarsaha.com/
+
+`GeoVerify` is a free API to fetch geolocation data or verify if a city/region/country does actually exist
 
 ## ✨ Usage
 
