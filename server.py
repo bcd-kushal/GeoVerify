@@ -8,7 +8,6 @@ from pymongo.server_api import ServerApi
 ATLAS_URI = os.environ.get("ATLAS_URI")
 app = Flask(__name__)
 
-
 # ==[ cities ]========================>
 @app.route("/cities",methods=['GET'])
 def getCities():
@@ -181,10 +180,17 @@ def show_syntax():
     return jsonify(KEYS)
 
 
-# ==[ rest ]========================>
+# ==[ home landing ]========================>
 @app.route("/",methods=['GET'])
-def throwError():
-    return jsonify({ "status": 400, "error": "Incorrect route defined" })
+def greet():
+    return jsonify({ 
+        "welcome":"Welcome to GeoVerify. This API provides data to geolocation data.", 
+        "endpoints": ["/cities","/countries","/states","/subregions"], 
+        "examples":[ "/cities?", "/countries?", "/states?" ], 
+        "...":"..."
+        "github":"https://github.com/bcd-kushal/GeoVerify/"
+    })
+
 
 
 # ==[ procfile ]========================>
