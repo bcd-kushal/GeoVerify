@@ -187,7 +187,7 @@ def greet():
         "welcome":"Welcome to GeoVerify. This API provides data to geolocation data.", 
         "endpoints": ["/cities","/countries","/states","/subregions"], 
         "examples":[ "/cities?", "/countries?", "/states?" ], 
-        "...":"..."
+        "...":"...",
         "github":"https://github.com/bcd-kushal/GeoVerify/"
     })
 
