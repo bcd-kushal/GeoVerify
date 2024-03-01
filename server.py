@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # ==[ cities ]========================>
 @app.route("/cities",methods=['GET'])
-async def getCities():
+def getCities():
     query_params = request.args
     queries = []
     args = []
@@ -45,7 +45,7 @@ async def getCities():
 
 # ==[ countries ]========================>
 @app.route("/countries",methods=['GET'])
-async def getCountries():
+def getCountries():
     query_params = request.args
     queries = []
     args = []
@@ -78,7 +78,7 @@ async def getCountries():
 
 # ==[ regions ]========================>
 @app.route("/regions",methods=['GET'])
-async def getRegions():
+def getRegions():
     query_params = request.args
     queries = []
     args = []
@@ -111,7 +111,7 @@ async def getRegions():
 
 # ==[ states ]========================>
 @app.route("/states",methods=['GET'])
-async def getStates():
+def getStates():
     query_params = request.args
     queries = []
     args = []
@@ -144,7 +144,7 @@ async def getStates():
 
 # ==[ subregions ]========================>
 @app.route("/subregions",methods=['GET'])
-async def getSubregions():
+def getSubregions():
     query_params = request.args
     queries = []
     args = []
@@ -177,13 +177,13 @@ async def getSubregions():
 
 # ==[ rest ]========================>
 @app.route("/help",methods=['GET'])
-async def show_syntax():
+def show_syntax():
     return jsonify(KEYS)
 
 
 # ==[ home landing ]========================>
 @app.route("/",methods=['GET'])
-async def greet():
+def greet():
     return jsonify({ 
         "welcome":"Welcome to GeoVerify. This API provides data to geolocation data.", 
         "endpoints": ["/cities","/countries","/states","/subregions"], 
