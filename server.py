@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # ==[ cities ]========================>
 @app.route("/cities",methods=['GET'])
-def getCities():
+async def getCities():
     query_params = request.args
     queries = []
     args = []
@@ -20,18 +20,19 @@ def getCities():
             queries.append(key.lower())
             args.append(val)
     
-    if(len(queries)==0):
-        return jsonify({ "status": 400, "error": "No valid key passed" })
+    mongo_client = MongoClient(ATLAS_URI,server_api = ServerApi('1'))
+    atlas_db = mongo_client.get_database("GeoVerify")
+    cities = atlas_db.Cities
 
     FILTER = {}
     for i in range(0,len(queries)):
         FILTER[queries[i]] = { "$regex": str(args[i]), "$options": "i" }
-
-    mongo_client = MongoClient(ATLAS_URI,server_api = ServerApi('1'))
-    atlas_db = mongo_client.get_database("GeoVerify")
-    cities = atlas_db.Cities
-    data = cities.find(FILTER)
-
+        
+    if(len(queries)==0):
+        data = cities.find({})
+    else:
+        data = cities.find(FILTER)
+        
     res = []
 
     for doc in data:
@@ -44,7 +45,7 @@ def getCities():
 
 # ==[ countries ]========================>
 @app.route("/countries",methods=['GET'])
-def getCountries():
+async def getCountries():
     query_params = request.args
     queries = []
     args = []
@@ -77,7 +78,7 @@ def getCountries():
 
 # ==[ regions ]========================>
 @app.route("/regions",methods=['GET'])
-def getRegions():
+async def getRegions():
     query_params = request.args
     queries = []
     args = []
@@ -110,7 +111,7 @@ def getRegions():
 
 # ==[ states ]========================>
 @app.route("/states",methods=['GET'])
-def getStates():
+async def getStates():
     query_params = request.args
     queries = []
     args = []
@@ -143,7 +144,7 @@ def getStates():
 
 # ==[ subregions ]========================>
 @app.route("/subregions",methods=['GET'])
-def getSubregions():
+async def getSubregions():
     query_params = request.args
     queries = []
     args = []
@@ -176,17 +177,17 @@ def getSubregions():
 
 # ==[ rest ]========================>
 @app.route("/help",methods=['GET'])
-def show_syntax():
+async def show_syntax():
     return jsonify(KEYS)
 
 
 # ==[ home landing ]========================>
 @app.route("/",methods=['GET'])
-def greet():
+async def greet():
     return jsonify({ 
         "welcome":"Welcome to GeoVerify. This API provides data to geolocation data.", 
         "endpoints": ["/cities","/countries","/states","/subregions"], 
-        "examples":[ "/cities?", "/countries?", "/states?" ], 
+        "help":"use /help endpoint to access endpoints", 
         "...":"...",
         "github":"https://github.com/bcd-kushal/GeoVerify/"
     })
