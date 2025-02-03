@@ -1,0 +1,525 @@
+$color_1: var(--primarytext);
+$color_2: var(--secondarytext);
+$color_3: #b0b3b8;
+$color_4: #e4e6eb;
+$color_5: var(--green);
+$color_6: #cf6679;
+$color_7: aliceblue;
+$font-family_1: var(--fontFam);
+$font-family_2: consolas;
+
+@import "https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Outfit:wght@300;700&family=Pacifico&display=swap";
+
+:root {
+	--bgcolor: #121212;
+	--primarycard: #121212;
+	--hovercard: #202020;
+	--primarytext: #e4e6eb;
+	--secondarytext: #b0b3b8;
+	--accentcolor: #3700b3;
+	--formheight: calc(100vh - 110px);
+	--green: #179f56;
+	--red: #ab0032;
+	--redborder: #cf6679;
+	--fontsize: 108%;
+	--fontfam: "Outfit";
+	--border1: rgba(219, 219, 219, 0.06);
+	--border2: rgba(219, 219, 219, 0.4);
+	--border3: rgba(219, 219, 219, 0.7);
+	--highlight: #ffffff;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: $color_1;
+	transition: 0.15s;
+}
+body {
+	font-family: $font-family_1;
+}
+::-webkit-scrollbar {
+	display: none;
+}
+main {
+	min-height: 100vh;
+	min-width: 100vw;
+	background: var(--bgcolor);
+	display: grid;
+	place-items: center;
+	grid-template-areas: "topbar   topbar    topbar" "forms    forms     forms" "menubar  menubar responsebar" "tabbar   tabbar    output" "tabfield tabfield  output";
+	grid-template-columns: 8fr minmax(190px, 2fr) 10fr;
+	grid-template-rows: 80px auto 55px 55px auto;
+	align-items: stretch;
+	justify-content: stretch;
+	>* {
+		justify-self: stretch;
+		align-self: stretch;
+		display: flex;
+		border: 0.05px solid var(--border1);
+	}
+}
+header {
+	grid-area: topbar;
+	background: var(--primarycard);
+	color: $color_1;
+	letter-spacing: 1.3px;
+	font-weight: bolder;
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	align-items: center;
+	justify-content: flex-start;
+	padding-left: 20px;
+	border: none;
+	font-size: calc(var(--fontSize) * 1.43);
+}
+nav {
+	background: var(--primarycard);
+	color: $color_2;
+	font-weight: 300;
+}
+.menubar {
+	grid-area: menubar;
+	background: #0030b340;
+	display: flex;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(var(--fontSize) * 1.3);
+	>* {
+		border-right: 0.05px solid var(--border1);
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 15px;
+		transition: 0.25s;
+		margin-left: 7px;
+	}
+}
+.btnarea {
+	grid-area: submitbtn;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.submitbtn {
+	align-items: center;
+	justify-content: center;
+	background: var(--accentcolor);
+	color: $color_3 !important;
+	font-weight: bold;
+	transition: 0.5s;
+	cursor: pointer;
+	letter-spacing: 1px;
+	font-size: calc(var(--fontSize) * 1.35);
+	font-family: $font-family_1;
+	text-decoration: none;
+	outline: none;
+	border: none;
+	padding: 12px 25px;
+	&:hover {
+		font-weight: bolder;
+		border: 2px solid var(--border3);
+		color: $color_4 !important;
+		letter-spacing: 1.3px;
+		transition: 0.5s;
+	}
+}
+.responsebar {
+	grid-area: responsebar;
+	background: #0030b320;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(var(--fontSize) * 1.3);
+	>* {
+		margin-left: 7px;
+	}
+}
+.forms {
+	grid-area: forms;
+	border: none;
+	height: calc(var(--formHeight) / 4);
+}
+.formfield {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 60vw;
+	min-width: 300px;
+	height: 30%;
+}
+.dropdown {
+	position: relative;
+	margin: 5px;
+	width: 20%;
+	&::before {
+		content: "Request";
+		background: var(--bgcolor);
+		padding: 0 5px;
+		color: $color_2;
+		font-weight: bold;
+		position: absolute;
+		top: -10px;
+		left: 10px;
+		font-size: calc(var(--fontSize) * 0.8);
+		letter-spacing: 1px;
+	}
+}
+.urlbar {
+	position: relative;
+	margin: 5px;
+	width: 75%;
+	&::before {
+		content: "API Endpoint";
+		color: $color_2;
+		font-weight: bold;
+		position: absolute;
+		top: -10px;
+		left: calc(12px);
+		font-size: calc(var(--fontSize) * 0.8);
+		letter-spacing: 1px;
+		background: var(--bgcolor);
+		padding: 0 5px;
+	}
+	input[type="text"] {
+		&:focus {
+			box-shadow: 0 0 10px white;
+		}
+	}
+}
+.output {
+	grid-area: output;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	padding: 20px;
+}
+.tabbar {
+	grid-area: tabbar;
+	display: grid;
+	grid-template-areas: "query  headers   json";
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: stretch;
+	justify-content: stretch;
+	>* {
+		background: transparent;
+		border: 0.05px solid var(--border1);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+}
+.tabfield {
+	grid-area: tabfield;
+	height: calc(var(--formHeight) * 0.75);
+	display: grid;
+	align-items: stretch;
+	justify-content: stretch;
+	>* {
+		grid-row-start: 1;
+		grid-column-start: 1;
+		color: $color_1;
+		overflow: scroll;
+	}
+}
+select {
+	background: var(--bgcolor);
+	color: $color_1;
+	padding: 15px;
+	text-decoration: none;
+	cursor: pointer;
+	transition: 0.6s;
+	width: 100%;
+	font-size: calc(var(--fontSize) * 1.45);
+	font-family: $font-family_1;
+	&:hover {
+		border: 1px solid var(--highlight);
+		transition: 0.6s;
+	}
+}
+input {
+	&:hover {
+		border: 1px solid var(--highlight);
+		transition: 0.6s;
+	}
+	&:focus {
+		outline: none;
+	}
+	width: 100%;
+	background: var(--bgcolor);
+	color: $color_1;
+	text-decoration: none;
+	padding: 15px;
+	border: 1.2px solid var(--border2);
+	transition: 0.6s;
+	font-size: calc(var(--fontSize) * 1.45);
+	font-family: $font-family_1;
+}
+.queryParamsTab {
+	grid-area: query;
+	background: var(--hovercard);
+	font-weight: bold;
+	transition: 0.2s;
+	font-size: calc(var(--fontSize) * 1.35);
+	&:hover {
+		font-weight: bold;
+		transition: 0.2s;
+		letter-spacing: 1px;
+		font-size: calc(var(--fontSize) * 1.35);
+	}
+}
+.HeadersTab {
+	grid-area: headers;
+	transition: 0.2s;
+	font-size: calc(var(--fontSize) * 1.35);
+	&:hover {
+		font-weight: bold;
+		transition: 0.2s;
+		letter-spacing: 1px;
+		font-size: calc(var(--fontSize) * 1.35);
+	}
+}
+.JSONTab {
+	grid-area: json;
+	transition: 0.2s;
+	font-size: calc(var(--fontSize) * 1.35);
+	&:hover {
+		font-weight: bold;
+		transition: 0.2s;
+		letter-spacing: 1px;
+		font-size: calc(var(--fontSize) * 1.35);
+	}
+}
+.headerWrapper {
+	display: none;
+}
+.jsonWrapper {
+	display: none;
+	padding: 20px;
+}
+.queryField {
+	display: grid;
+	grid-template-areas: "addbtn  keyvalpairs";
+	grid-template-columns: 1fr 4.5fr;
+	align-items: stretch;
+	justify-content: stretch;
+}
+.headerField {
+	display: grid;
+	grid-template-areas: "addbtn  keyvalpairs";
+	grid-template-columns: 1fr 4.5fr;
+	align-items: stretch;
+	justify-content: stretch;
+}
+.addField {
+	position: relative;
+	grid-area: addbtn;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+}
+.keyValueField {
+	grid-area: keyvalpairs;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	padding: 25px 25px 10px 25px;
+	>* {
+		margin-bottom: 15px;
+		width: 93%;
+	}
+}
+.addbtn {
+	width: fit-content;
+	background: transparent;
+	border: 1.4px solid var(--green);
+	color: $color_5;
+	padding: 8px 14px;
+	margin: 25px 0 0 0;
+	transition: 0.5s;
+	cursor: pointer;
+	letter-spacing: 1.3px;
+	font-size: calc(var(--fontSize) * 1.6);
+	font-family: $font-family_1;
+	&:hover {
+		color: $color_4;
+		background: var(--green);
+		border: 0.5px solid var(--border2);
+		font-weight: bold;
+		transition: 0.5s;
+	}
+}
+.keyValPair {
+	display: flex;
+	overflow: hidden;
+}
+.keyField {
+	font-size: calc(var(--fontSize) * 1.65);
+}
+.valueField {
+	border-radius: 0 0;
+	font-size: calc(var(--fontSize) * 1.65);
+}
+.btnRemove {
+	border: none;
+	background: transparent;
+	border: 1.4px solid var(--redBorder);
+	padding: 0 15px;
+	transition: 0.4s;
+	cursor: pointer;
+	&:hover {
+		background: var(--redBorder);
+		color: $color_1;
+		transition: 0.4s;
+		>* {
+			filter: grayscale(1) brightness(10%);
+			transition: 0.4s;
+		}
+	}
+}
+.responseWrapper {
+	display: none;
+	width: 100%;
+	min-height: 40%;
+	height: auto;
+	border: 1.2px solid var(--border2);
+}
+.responseBox {
+	display: grid;
+	width: 100%;
+	height: 100%;
+	font-size: calc(var(--fontSize) * 1.46);
+	grid-template-areas: "status     status" "bodytab    headertab" "ressec     ressec";
+	align-items: stretch;
+	justify-items: stretch;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 50px 35px auto;
+}
+.statusbar {
+	grid-area: status;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	>* {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		padding-left: 15px;
+		border: 1.2px solid var(--border2);
+	}
+}
+.bodyResponseTab {
+	grid-area: bodytab;
+	background: var(--primarycard);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border: 1.2px solid var(--border2);
+	transition: 0.5s;
+	background: var(--hovercard);
+	font-weight: bold;
+	&:hover {
+		letter-spacing: 1px;
+		transition: 0.2s;
+	}
+}
+.headerResponseTab {
+	grid-area: headertab;
+	background: var(--primarycard);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border: 1.2px solid var(--border2);
+	transition: 0.2s;
+	&:hover {
+		letter-spacing: 1px;
+		transition: 0.2s;
+	}
+}
+.answerContainer {
+	grid-area: ressec;
+	height: inherit;
+	display: grid;
+	max-height: 65vh;
+	>* {
+		position: relative;
+		grid-row-start: 1;
+		grid-column-start: 1;
+		display: block;
+		padding: 10px;
+	}
+}
+.bodyAnsContainer {
+	height: 100%;
+	width: 100%;
+	color: $color_1;
+	padding: 10px;
+	height: 50vh;
+	overflow: scroll;
+}
+.bodyAnswer {
+	height: 100%;
+	width: 100%;
+	color: $color_1;
+	padding: 10px;
+}
+.headerAnsContainer {
+	height: 100%;
+	width: 100%;
+	color: $color_1;
+	padding: 10px;
+	padding: 0;
+	display: none;
+}
+.headerAnswer {
+	height: 100%;
+	width: 100%;
+	color: $color_1;
+	padding: 10px;
+	height: auto;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	align-content: stretch;
+	justify-content: stretch;
+	font-size: 100%;
+	>* {
+		border: 1.2px solid var(--border2);
+		min-height: 45px;
+		padding: 10px;
+	}
+}
+#editor {
+	height: 70%;
+	position: relative;
+	width: 100%;
+	font-size: 139%;
+	font-family: $font-family_2;
+	border: 0.5px solid var(--border1);
+}
+#responseEditor {
+	font-size: 85%;
+}
+.about {
+	a {
+		&:hover {
+			color: $color_6;
+		}
+	}
+}
+h2 {
+	color: $color_6;
+	font-size: 2rem;
+	margin: 70px 0 25px;
+}
+h4 {
+	color: $color_7;
+	font-size: 1.5rem;
+	margin: 20px 0;
+}

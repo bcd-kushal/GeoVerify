@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Fetch</title>
+  <link rel="stylesheet" href="./styles.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <main>
+    <header style="justify-content: space-between;">
+      <div class="" style="display: flex; align-items: center; justify-content: center;">
+        <div class="">
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" style="fill: #cf6679; margin-right:10px;" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M192 32c17.7 0 32 14.3 32 32V199.5l111.5-66.9c15.2-9.1 34.8-4.2 43.9 11s4.2 34.8-11 43.9L254.2 256l114.3 68.6c15.2 9.1 20.1 28.7 11 43.9s-28.7 20.1-43.9 11L224 312.5V448c0 17.7-14.3 32-32 32s-32-14.3-32-32V312.5L48.5 379.4c-15.2 9.1-34.8 4.2-43.9-11s-4.2-34.8 11-43.9L129.8 256 15.5 187.4c-15.2-9.1-20.1-28.7-11-43.9s28.7-20.1 43.9-11L160 199.5V64c0-17.7 14.3-32 32-32z"/></svg>
+        </div>
+        <div>API Fetch</div>
+      </div>
+      <div class="about" style="margin-right: 50px;">
+        <a href="about.html" style="text-decoration: none; font-weight: 100; font-size: large;">About Us</a>
+      </div>
+    </header>
+
+    <nav class="menubar">
+      <div>HEADERS</div>
+    </nav>
+
+    <div class="btnarea">
+    </div>
+
+    <nav class="responsebar">
+      <div>RESPONSE</div>
+    </nav>
+
+    <article style="align-items: center; justify-content: center;flex-direction: column;" class="forms">
+      <form data-form action="" method="get" class="formfield" style="margin-bottom: 20px;">
+        <div data-request-method class="dropdown">
+          <select data-req-type name="httpRequestType" id="dataReqType">
+            <option value="get" selected>GET</option>
+            <option value="post">POST</option>
+            <!-- <option value="put">PUT</option>
+            <option value="patch">PATCH</option> -->
+            <option value="delete">DELETE</option>
+          </select>
+        </div>
+
+        <!-- URL INSERTOR -->
+        <div class="urlbar">
+          <input data-url type="url" name="urlBox" id="urlBox" spellcheck="false" placeholder="https://api/example.com"
+            required />
+        </div>
+      </form>
+      
+      <button data-send-btn class="submitbtn">
+        <div>Get response</div>
+      </button>
+    </article>
+
+    <nav class="tabbar">
+      <section data-query-params-tab class="queryParamsTab">Queries</section>
+      <section data-headers-tab class="HeadersTab">Headers</section>
+      <section data-json-tab class="JSONTab">JSON</section>
+    </nav>
+
+    <article class="tabfield">
+      <div class="queryWrapper">
+        <div class="queryField">
+          <div class="addField">
+            <button data-add-query-params-field-btn type="button" class="addbtn">
+              ADD
+            </button>
+          </div>
+
+          <div class="keyValueField"></div>
+        </div>
+      </div>
+
+      <div class="headerWrapper">
+        <div class="headerField">
+          <div class="addField">
+            <button data-add-header-field-btn type="button" class="addbtn">
+              ADD
+            </button>
+          </div>
+
+          <div class="keyValueField"></div>
+        </div>
+      </div>
+
+      <div class="jsonWrapper">
+        <div id="editor"></div>
+      </div>
+    </article>
+
+    <article class="output">
+      <div class="responseWrapper">
+        <div class="responseBox">
+          <div class="statusbar">
+            <div>
+              Status:
+              <span style="padding: 0 5px" data-status class="status"></span>
+            </div>
+            <div>
+              Size:
+              <span style="padding: 0 5px" data-size class="size"></span>
+            </div>
+            <div>
+              Time:
+              <span style="padding: 0 5px" data-time class="time"></span>
+            </div>
+          </div>
+          <div data-body-response-tab class="bodyResponseTab">
+            <div>Body</div>
+          </div>
+          <div data-header-response-tab class="headerResponseTab">
+            <div>Headers</div>
+          </div>
+          <div class="answerContainer">
+            <div class="bodyAnsContainer">
+              <div data-res-body-field id="responseEditor" class="bodyAnswer"></div>
+            </div>
+            <div class="headerAnsContainer">
+              <div class="headerAnswer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <template data-key-value-template>
+    <div data-key-value-pair class="keyValPair">
+      <input data-key type="text" class="keyField" spellcheck="false" placeholder="Key" />
+      <input data-value type="text" class="valueField" spellcheck="false" placeholder="Value" />
+      <button data-remove-btn class="btnRemove" type="button">
+        <i class="fa fa-trash-o trashIcon" style="font-size: 25px; color: #cf6679"></i>
+      </button>
+    </div>
+  </template>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js"></script>
+  <script>
+    var exports = {};
+  </script>
+  <script type="module" src="./script.js"></script>
+</body>
+
+</html>

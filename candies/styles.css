@@ -1,0 +1,122 @@
+:root {
+  --blue: #24006b;
+  --pink: #f42fb2;
+  --rotateAngle: 45deg;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI";
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(225deg, var(--blue), var(--pink));
+}
+.container {
+  width: 95vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 3vw;
+  margin: 0 auto;
+}
+
+.container .card {
+  position: relative;
+  width: 20vw;
+  height: 25vh;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.container .card .slide {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .card .slide.slide1 {
+  box-sizing: border-box;
+  padding: 1.2vw;
+}
+
+.container .card .slide.slide1 h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.container .card .slide.slide2 {
+  background: #111;
+  transition: 0.5s;
+}
+
+.container .card:hover .slide.slide2 {
+  height: 50px;
+}
+
+.container .card .slide.slide2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.container .card:nth-child(1) .slide.slide2,
+.container .card:nth-child(6) .slide.slide2 {
+  background: linear-gradient(var(--rotateAngle), #3dff7b, #000f53);
+}
+
+.container .card:nth-child(2) .slide.slide2,
+.container .card:nth-child(8) .slide.slide2 {
+  background: linear-gradient(var(--rotateAngle), #67aeff, #53003e);
+}
+
+.container .card:nth-child(3) .slide.slide2,
+.container .card:nth-child(12) .slide.slide2 {
+  background: linear-gradient(var(--rotateAngle), #f2ff3d, #530000);
+}
+
+.container .card:nth-child(5) .slide.slide2,
+.container .card:nth-child(11) .slide.slide2 {
+  background: linear-gradient(var(--rotateAngle), #ffad9e, #530000);
+}
+.container .card:nth-child(7) .slide.slide2,
+.container .card:nth-child(9) .slide.slide2 {
+  background: linear-gradient(var(--rotateAngle), #ef3dff, #412107);
+}
+.container .card:nth-child(10) .slide.slide2,
+.container .card:nth-child(4) .slide.slide2 {
+  background: linear-gradient(var(--rotateAngle), #9c9c9c, #030303);
+}
+
+.container .card .slide.slide2 h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 8em;
+  color: white;
+  transition: 0.5s;
+}
+
+.container .card:hover .slide.slide2 h2 {
+  font-size: 2em;
+}

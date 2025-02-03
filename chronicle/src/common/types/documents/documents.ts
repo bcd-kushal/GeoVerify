@@ -1,0 +1,11 @@
+export type BlogAtomicDataDocument = { title: string, thumbnail: ImageDocument, id: string, createdAt: Date }
+export type BlogCardDataDocument = BlogAtomicDataDocument & { description: string, metrics: BlogMetricsType, tag: TagDocument }
+export type BlogCommentsDocument = { count: number, data: CommentDocument[] }
+export type BlogFullDataDocument = BlogCardDataDocument & { fullArticle: string, relatedBlogs: BlogAtomicDataDocument[] }
+export type BlogMetricsType = { comments: number, likes: number, views: number, id?: string }
+export type CommentDocument = { id: string, comment: string, likes: number, replies: CommentDocument[], reader: ReaderAtomicDataDocument, createdAt: Date }
+export type ImageDocument = { alt: string, url: string | undefined, id?: string }
+export type ReaderAtomicDataDocument = { id: string, pfp?: ImageDocument, name: string }
+export type ReaderFullDataDocument = ReaderProfileDataDocument & { password: string } & ({ email?: string, mobile: string } | { email: string, mobile?: string })
+export type ReaderProfileDataDocument = ReaderAtomicDataDocument & { comments: number, likes: number }
+export type TagDocument = { label: string, id?: string }

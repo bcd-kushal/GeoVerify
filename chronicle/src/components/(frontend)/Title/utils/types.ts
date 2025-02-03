@@ -1,0 +1,2 @@
+export type TitleType =         | { type: "text", label: string, variant: "blog" | "category" | "settings" } 
+                                | { type: "link", href: string, target?: "self" | "new-tab", label: string, variant: "blog" | "category" }

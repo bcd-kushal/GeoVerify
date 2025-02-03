@@ -1,0 +1,42 @@
+.blogArticle h1 {
+    display: block;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+
+.blogArticle h2 {
+    display: block;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 32px;
+    padding: 36px 0 24px ;
+}
+
+.blogArticle p {
+    margin: 0 0 24px;
+}
+
+.blogArticle a {
+    color: #3b82f6;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.blogArticle a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+
+@media (min-width:768px) {
+    .blogArticle p {
+        font-size: 18px;
+    }
+
+    .blogArticle h2 {
+        font-weight: 700;
+        font-size: 26px;
+    }
+}

@@ -1,0 +1,102 @@
+/* DEFAULT IMAGE CONFIG ------------ */
+.blog-img {
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 36px;
+    position: relative;
+}
+
+.blog-img > div { width: 100%; height: 100%; position: relative; }
+.blog-img > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.square          { aspect-ratio: 1/1; }
+.default         { aspect-ratio: 2/1; }
+.banner          { aspect-ratio: 3/1; }
+.start-thumbnail { aspect-ratio: 3/1; margin-bottom: 40px; }
+.sticker         { aspect-ratio: 4/1; }
+.end-thumbnail   { aspect-ratio: 4/1; margin: 40px 0 0 !important; }
+
+.duo-default, .duo-h, .duo-v,
+.trio-default, .trio-h, .trio-v, .trio-l-collage, .trio-r-collage, .trio-t-collage, .trio-b-collage,
+.quad-default, .quad-h, .quad-v, .quad-l-collage, .quad-r-collage, .quad-t-collage, .quad-b-collage             
+{ display: grid; gap: 12px }
+
+.start-thumbnail, .end-thumbnail,
+.duo-default>div, .duo-h>div, .duo-v>div,
+.trio-default>div, .trio-h>div, .trio-v>div, .trio-l-collage>div, .trio-r-collage>div, .trio-t-collage>div, .trio-b-collage>div,
+.quad-default>div, .quad-h>div, .quad-v>div, .quad-l-collage>div, .quad-r-collage>div, .quad-t-collage>div, .quad-b-collage>div
+{ background: #71717a12; overflow: hidden; }
+
+
+/* 2 IMAGES LAYOUT ---------------------------------------- */
+.duo-default, .duo-h { grid-template-columns: repeat(2,1fr); }
+.duo-v { grid-template-rows: repeat(2,1fr); }
+
+
+/* 3 IMAGES LAYOUT ---------------------------------------- */
+.trio-default, .trio-l-collage, .trio-r-collage, .trio-t-collage, .trio-b-collage {
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+.trio-default > div:nth-child(1), 
+.trio-l-collage > div:nth-child(1),
+.trio-r-collage > div:nth-child(3) 
+{ grid-row: span 2 }
+
+.trio-r-collage > div:nth-child(2) { grid-row: 2; grid-column: 1;} 
+
+.trio-t-collage > div:nth-child(1),
+.trio-b-collage > div:nth-child(3) 
+{ grid-column: span 2 }
+
+.trio-h { grid-template-columns: repeat(3,1fr);} 
+.trio-v { grid-template-rows:    repeat(3,1fr);}
+
+
+/* 4 IMAGES LAYOUT ---------------------------------------- */
+.quad-default {
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+.quad-l-collage, .quad-r-collage {
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+.quad-t-collage, .quad-b-collage {
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+.quad-l-collage > div:nth-child(1),
+.quad-r-collage > div:nth-child(4) 
+{ grid-row: span 3 }
+
+.quad-r-collage > div:nth-child(2) { grid-row: 2; grid-column: 1;} 
+.quad-r-collage > div:nth-child(3) { grid-row: 3; grid-column: 1;} 
+
+.quad-t-collage > div:nth-child(1),
+.quad-b-collage > div:nth-child(4) 
+{ grid-column: span 3 }
+
+.quad-h { grid-template-columns: repeat(4,1fr);} 
+.quad-v { grid-template-rows:    repeat(4,1fr);}
+
+
+
+
+
+
+@media (max-width:640px) {
+    .duo-default, .duo-h, .duo-v,
+    .trio-default, .trio-h, .trio-v, .trio-l-collage, .trio-r-collage, .trio-t-collage, .trio-b-collage,
+    .quad-default, .quad-h, .quad-v, .quad-l-collage, .quad-r-collage, .quad-t-collage, .quad-b-collage
+    { gap:4.5px }
+    
+    .blog-img        { margin-bottom: 25px; }
+    .start-thumbnail { margin-bottom: 25px; }
+    .end-thumbnail   { margin: 60px 0 0 !important; }
+}

@@ -1,0 +1,1 @@
+export type FooterLinksType                     = Array<{title: string, links: Array<{ label:string, link:string }> }>

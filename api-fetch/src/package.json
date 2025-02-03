@@ -1,0 +1,21 @@
+{
+  "name": "postuncle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "snowpack dev",
+    "build": "snowpack build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "pretty-bytes": "^6.1.1"
+  },
+  "devDependencies": {
+    "snowpack": "^3.8.8"
+  }
+}

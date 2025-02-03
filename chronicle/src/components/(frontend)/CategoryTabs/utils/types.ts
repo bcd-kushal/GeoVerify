@@ -1,0 +1,1 @@
+export type CategoryTabType                 = { label: string, link: string }
