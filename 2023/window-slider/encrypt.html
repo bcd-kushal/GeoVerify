@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/design.css">
+    <link rel="stylesheet" href="./css/encrypt.css">
+</head>
+<body>
+    <!-- header page -->
+    
+        <div class="header" id="side_L">
+            <div class="title"  style="top: 37vh;display: flex;flex-direction: column;">
+                <span style="width: 75vw;position: relative;left: 50%;transform: translateX(-50%);padding: 1.3rem;border: 2px solid #101820ff;">Log-in : Enter correct details</span> 
+                <div style="display: flex;flex-direction: column;font-size: 4.5rem;margin-top: 7vh;">
+                
+                    <div style="position:relative;left:-6vw;">
+                        Username :
+                    </div>
+
+                    <div style="margin-top: 5vh;position:relative;left:7vw;">
+                        : Password
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="header" id="side_R">
+            <div class="title"  style="top: 37vh;display: flex;flex-direction: column;">
+                <span style="width: 75vw;position: relative;left: 50%;transform: translateX(-50%);padding: 1.3rem;border: 2px solid #101820ff;">Log-in : Enter correct details</span> 
+                <div style="display: flex;flex-direction: column;font-size: 4.5rem;margin-top: 7vh;">
+                
+                    <div style="position:relative;left:-6vw;">
+                        Username :
+                        <input type="text" id="username" style="position: absolute;top: 50%;transform: translateY(-50%); right: 13vw;width: 25vw; height: 7vh;color: #101820ff;border-style: none;font-size: 2.9rem;border-bottom: 2px solid #101820ff;background: transparent;"></input>
+                    </div>
+
+                    <div style="margin-top: 5vh;position:relative;left:7vw;">
+                        : Password
+                        <div style="position: absolute;top: 50%;transform: translateY(-50%); right: 0;width: 40vw;border-radius: 10rem; height: 3vh;background:#101820ff;"></div>
+                    </div>
+                
+                </div>
+            </div>
+
+            
+
+        </div>
+        <div class="header" id="side_L1">
+            <div class="title"  style="top: 37vh;display: flex;flex-direction: column;">
+                <span style="width: 75vw;position: relative;left: 50%;transform: translateX(-50%);padding: 1.3rem;border: 2px solid #f2aa4cff;">Log-in : Enter correct details</span> 
+                <div style="display: flex;flex-direction: column;font-size: 4.5rem;margin-top: 7vh;">
+                
+                    <div style="position:relative;left:-6vw;">
+                        Username :
+                        <div style="position: absolute;top: 50%;transform: translateY(-50%); left: 0;width: 40vw;border-radius: 10rem; height: 3vh;background:#f2aa4cff;"></div>
+                    </div>
+
+                    <div style="margin-top: 5vh;position:relative;left:7vw;">
+                        <input type="password" id="passw" style="position: absolute;top: 50%;transform: translateY(-50%);text-align: right; left: 13vw;width: 25vw; height: 7vh;color: #f2aa4cff;border-style: none;font-size: 2.9rem;border-bottom: 2px solid #f2aa4cff;background: transparent;"></input>
+                        : Password
+                    </div>
+                
+                </div>
+            </div>
+            <div style="width: 100%;position: absolute;left: 0; bottom: 10vh;display: flex;flex-direction: column;">
+                <input type="button" value="Submit" id="submit_btn">
+                <input type="button" value="Reset" id="reset_btn">
+            </div>
+            
+        </div>
+        <div class="header" id="side_R1">
+            <div class="title"  style="top: 37vh;display: flex;flex-direction: column;">
+                <span style="width: 75vw;position: relative;left: 50%;transform: translateX(-50%);padding: 1.3rem;border: 2px solid #f2aa4cff;">Log-in : Enter correct details</span> 
+                <div style="display: flex;flex-direction: column;font-size: 4.5rem;margin-top: 7vh;">
+                
+                    <div style="position:relative;left:-6vw;">
+                        Username :
+                    </div>
+
+                    <div style="margin-top: 5vh;position:relative;left:7vw;">
+                        : Password
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $('#submit_btn').click(function(){
+    
+                    if(submit_btn("Sure to submit details?")==false)
+                        return false;
+
+                    let u = document.getElementById("username").value.trim();
+                    let p = document.getElementById("passw").value.trim();
+    
+                    if(u=="" || p==""){
+                        alert("Empty username or password.");
+                        return false;
+                    }
+
+                    if(u!="kushal_kumar"){
+                        alert("Incorrect username.");
+                        return false;
+                    }
+    
+                    if(p!="webslider_kushal"){
+                        alert("Incorrect password.");
+                        return false;
+                    }
+                    
+                    alert("Welcome...");
+                    window.location.href="transition.html";
+                });
+                $('#reset_btn').click(function(){
+    
+                    if(submit_btn("Any data will be reset")==false)
+                        return false;
+
+                    let u = document.getElementById("username").value="";
+                    let p = document.getElementById("passw").value="";
+                });
+            });
+
+            function submit_btn(str){
+                return confirm(str);
+            }
+            
+        </script>
+</body>
+</html>

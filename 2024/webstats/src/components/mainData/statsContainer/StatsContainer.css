@@ -1,0 +1,13 @@
+.article-width {
+  max-width: 972px;
+  width: calc(100dvw - 308px);
+  height: calc(100dvh - 256.5px);
+}
+
+@media (max-width: 768px) {
+  .article-width {
+    width: calc(100dvw - 32px);
+    max-width: 100%;
+    height: calc(100dvh - 346.5px);
+  }
+}

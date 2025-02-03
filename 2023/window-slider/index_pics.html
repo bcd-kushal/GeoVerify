@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/design.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      .submitForm1 input[type="button"]:hover {
+        background-color: rgb(211, 65, 191);
+      }
+
+      .main_body section:before {
+        content: "";
+        position: absolute;
+        width: 650px;
+        height: 650px;
+        background: linear-gradient(#e9471e, #fcff4a);
+        border-radius: 50%;
+        transform: translate(calc(0vw - 550px), -20vh);
+        animation: bubbles 60s linear infinite;
+        transition: 0.2s;
+      }
+      @keyframes bubbles {
+        0%,
+        100% {
+          transform: translate(calc(0vw - 550px), -20vh);
+        }
+        50% {
+          transform: translate(calc(0vw - 250px), 20vh);
+        }
+      }
+      .main_body section:after {
+        content: "";
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        background: linear-gradient(#7c21f3, #31ffe4);
+        border-radius: 50%;
+        transform: translate(400px, -120px);
+        animation: bubbles2 60s linear infinite;
+        transition: 0.2s;
+      }
+      @keyframes bubbles2 {
+        0%,
+        100% {
+          transform: translate(41vw, -120px);
+        }
+        50% {
+          transform: translate(220px, -10px);
+        }
+      }
+    </style>
+    <script src="./jquery/pics.js"></script>
+  </head>
+  <body onload="scroll_headers()">
+    <!-- shifters -->
+    <div class="shifters">
+      <div class="containers" id="re1" style="margin-top: 35px">
+        <img src="./icons/3a.png" alt="" />
+      </div>
+      <div class="containers" id="re3">
+        <img src="./icons/3b.png" alt="" />
+      </div>
+    </div>
+
+    <!-- header page -->
+    <div class="header" id="side_L">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_R">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_L1">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_R1">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+
+    <!-- main content -->
+    <div class="main_body">
+      <section>
+        <div class="card" style="min-height: 70vh">
+          <div
+            class="list"
+            onclick="expand(0)"
+            onmouseover="changeBorderBlue(0)"
+            onmouseout="changeBorderBack(0)"
+          >
+            <div class="iconBox">
+              <img src="./icons/upload.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>upload image</h4>
+                <p>
+                  check if image exists, validate image or upload under a
+                  specific size
+                </p>
+              </span>
+              <h2 class="q_no"><small>#</small>1</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/picsUpload.php"
+                class="form1"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Add an Image</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    readonly
+                    placeholder="image details"
+                  />
+                  <div class="or"><-</div>
+                  <input type="file" id="filename" onchange="getOutput(0)" />
+                </div>
+                <div class="text">Further Options</div>
+                <div style="display: flex">
+                  <input
+                    type="number"
+                    id="textarea"
+                    placeholder="max file size"
+                  />
+                  <div class="or" style="padding: 0">+</div>
+                  <select name="bytes" id="filename" class="selection">
+                    <option value="kb">kb</option>
+                    <option value="mb">mb</option>
+                    <option value="gb">gb</option>
+                  </select>
+                </div>
+                <div
+                  class="text"
+                  style="text-align: center; font-size: 1.94rem"
+                >
+                  --- Allowed extensions ---
+                </div>
+                <div style="display: flex; font-size: 1.85rem" class="newer">
+                  <input
+                    type="checkbox"
+                    name="checks"
+                    id="textarea"
+                    value="jpg"
+                    style="margin: 0.5rem 0 0.5rem 0"
+                    checked
+                  />JPG
+                  <input
+                    type="checkbox"
+                    name="checks"
+                    id="textarea"
+                    value="jpeg"
+                    style="margin: 0.5rem 0 0.5rem 0"
+                  />JPEG
+                  <input
+                    type="checkbox"
+                    name="checks"
+                    id="textarea"
+                    value="gif"
+                    style="margin: 0.5rem 0 0.5rem 0"
+                  />GIF
+                  <input
+                    type="checkbox"
+                    name="checks"
+                    id="textarea"
+                    value="png"
+                    style="margin: 0.5rem 0 0.5rem 0"
+                    checked
+                  />PNG
+                  <input
+                    type="checkbox"
+                    name="checks"
+                    id="textarea"
+                    value="mp4"
+                    style="margin: 0.5rem 0 0.5rem 0"
+                  />MP4
+                </div>
+              </form>
+
+              <div class="submitForm1" style="bottom: 5%">
+                <input type="button" value="Upload Image" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(1)"
+            onmouseover="changeBorderBlue(1)"
+            onmouseout="changeBorderBack(1)"
+          >
+            <div class="iconBox">
+              <img src="./icons/calendar.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>time functions</h4>
+                <p>functions taught over in class</p>
+              </span>
+              <h2 class="q_no"><small>#</small>2</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/picsUpload6.php"
+                class="form2"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Add an Image</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    readonly
+                    placeholder="image details"
+                  />
+                  <div class="or"><-</div>
+                  <input type="file" id="filename" onchange="getOutput(1)" />
+                </div>
+                <div class="text">Further Options</div>
+                <div style="display: flex">
+                  <input
+                    type="number"
+                    id="textarea"
+                    placeholder="max file size"
+                  />
+                  <div class="or" style="padding: 0">+</div>
+                  <select name="bytes" id="filename" class="selection">
+                    <option value="kb">kb</option>
+                    <option value="mb">mb</option>
+                    <option value="gb">gb</option>
+                  </select>
+                </div>
+                <div
+                  class="text"
+                  style="text-align: center; font-size: 1.94rem"
+                >
+                  --- Allowed extensions ---
+                </div>
+                <div style="display: flex; font-size: 1.85rem" class="newer">
+                  <input
+                    type="checkbox"
+                    name="checks"
+                    id="textarea"
+                    value="jpg"
+                    style="margin: 0.5rem 0 0.5rem 0"
+                    checked
+                  />JPG
+                  <input
+                    type="checkbox"
+                    name="checks"
+                    id="textarea"
+                    value="jpeg"
+                    style="margin: 0.5rem 0 0.5rem 0"
+                  />JPEG
+                  <input
+                    type="checkbox"
+                    name="checks"
+                    id="textarea"
+                    value="gif"
+                    style="margin: 0.5rem 0 0.5rem 0"
+                  />GIF
+                  <input
+                    type="checkbox"
+                    name="checks"
+                    id="textarea"
+                    value="png"
+                    style="margin: 0.5rem 0 0.5rem 0"
+                    checked
+                  />PNG
+                  <input
+                    type="checkbox"
+                    name="checks"
+                    id="textarea"
+                    value="mp4"
+                    style="margin: 0.5rem 0 0.5rem 0"
+                  />MP4
+                </div>
+              </form>
+
+              <div class="submitForm1" style="bottom: 5%">
+                <input type="button" value="Upload Image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./js/pics_script.js"></script>
+  </body>
+</html>

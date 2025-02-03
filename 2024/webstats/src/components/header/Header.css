@@ -1,0 +1,12 @@
+.wiggle-grp:hover .wiggle-target { 
+    animation: wiggleUp .7s linear;
+}
+
+@keyframes wiggleUp {
+    0%,100% {
+        transform: translateY(0);
+    }
+    45% {
+        transform: translateY(-3px);
+    }
+}

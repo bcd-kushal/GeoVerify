@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/design.css" />
+    <link rel="stylesheet" href="./css/time.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script srcWINDOW SLIDER"></script>
+  </head>
+  <body onload="scroll_headers()">
+    <!-- shifters -->
+    <div class="shifters">
+      <div class="containers" id="re1" style="margin-top: 35px">
+        <img src="./icons/3a.png" alt="" />
+      </div>
+      <div class="containers" id="re3">
+        <img src="./icons/3b.png" alt="" />
+      </div>
+      <div class="containers" id="re2">
+        <img src="./icons/pics.png" alt="" />
+      </div>
+    </div>
+
+    <!-- header page -->
+    <div class="header" id="side_L">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_R">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_L1">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_R1">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+
+    <!-- main content -->
+    <div class="main_body">
+      <section>
+        <div class="card">
+          <div
+            class="list"
+            onclick="expand(0)"
+            onmouseover="changeBorderBlue(0)"
+            onmouseout="changeBorderBack(0)"
+          >
+            <div class="iconBox">
+              <img src="./icons/1.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>date formats</h4>
+                <p>show date in different formats</p>
+              </span>
+              <h2 class="q_no"><small>#</small>1</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form action="" class="form1">
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(0)" />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(1)" />
+                </div>
+              </form>
+
+              <div class="submitForm1">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(1)"
+            onmouseover="changeBorderBlue(1)"
+            onmouseout="changeBorderBack(1)"
+          >
+            <div class="iconBox">
+              <img src="./icons/2.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>2 files into one</h4>
+                <p>copy content of the two into one output file</p>
+              </span>
+              <h2 class="q_no"><small>#</small>2</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form action="" class="form2">
+                <div class="text">Input files</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(2)" />
+                </div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(3)" />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(4)" />
+                </div>
+              </form>
+              <div class="submitForm2">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(2)"
+            onmouseover="changeBorderBlue(2)"
+            onmouseout="changeBorderBack(2)"
+          >
+            <div class="iconBox">
+              <img src="./icons/3.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>reverse content</h4>
+                <p>output file stores reversed content of entered one</p>
+              </span>
+              <h2 class="q_no"><small>#</small>3</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form action="" class="form3">
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(5)" />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(6)" />
+                </div>
+              </form>
+              <div class="submitForm3">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(3)"
+            onmouseover="changeBorderBlue(3)"
+            onmouseout="changeBorderBack(3)"
+          >
+            <div class="iconBox">
+              <img src="./icons/4.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>splice</h4>
+                <p>split contents into 2 seperate output files</p>
+              </span>
+              <h2 class="q_no"><small>#</small>4</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form action="" class="form4">
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(7)" />
+                </div>
+                <div class="text">Output files</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(8)" />
+                </div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(9)" />
+                </div>
+              </form>
+              <div class="submitForm4">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(4)"
+            onmouseover="changeBorderBlue(4)"
+            onmouseout="changeBorderBack(4)"
+          >
+            <div class="iconBox">
+              <img src="./icons/5.png" alt="" />
+            </div>
+            <div class="details">
+              <h2 class="q_no"><small>#</small>5</h2>
+              <span style="display: grid">
+                <h4>im capping, no cap</h4>
+                <p>caps to small or vice-versa</p>
+              </span>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form action="" class="form5">
+                <div class="options">
+                  <label class="control control--radio"
+                    >&nbsp;To small &nbsp;
+                    <input type="radio" name="radio" checked="checked" />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <div
+                    class="bar"
+                    style="width: 1.5px; height: 100%; background-color: white"
+                  ></div>
+                  &nbsp;&nbsp;
+                  <label class="control control--radio"
+                    >&nbsp;To CAPS
+                    <input type="radio" name="radio" />
+                    <div class="control__indicator"></div>
+                  </label>
+                </div>
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(10)" />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(11)" />
+                </div>
+              </form>
+              <div class="submitForm5">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(5)"
+            onmouseover="changeBorderBlue(5)"
+            onmouseout="changeBorderBack(5)"
+          >
+            <div class="iconBox">
+              <img src="./icons/6.png" alt="" />
+            </div>
+            <div class="details">
+              <h2 class="q_no"><small>#</small>6</h2>
+              <span style="display: grid">
+                <h4>words in the park</h4>
+                <p>details of words extracted, also show them and export</p>
+              </span>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form action="" class="form6">
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(12)" />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(13)" />
+                </div>
+              </form>
+              <div class="submitForm6">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./js/time_script.js"></script>
+  </body>
+</html>

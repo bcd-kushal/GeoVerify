@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/design.css" />
+    <link rel="stylesheet" href="./css/3b.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./jquery/3b.js"></script>
+  </head>
+  <body onload="scroll_headers()">
+    <!-- shifters -->
+    <div class="shifters">
+      <div class="containers" id="re3" style="margin-top: 35px">
+        <img src="./icons/3a.png" alt="" />
+      </div>
+      <div class="containers" id="re2">
+        <img src="./icons/dots.png" alt="" style="width: 2.1vw" />
+      </div>
+    </div>
+
+    <!-- header page -->
+    <div class="header" id="side_L">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_R">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_L1">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_R1">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+
+    <!-- main content -->
+    <div class="main_body">
+      <section>
+        <div class="card">
+          <div
+            class="list"
+            onclick="expand(0)"
+            onmouseover="changeBorderBlue(0)"
+            onmouseout="changeBorderBack(0)"
+          >
+            <div class="iconBox">
+              <img src="./icons/3b_a.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>payslip</h4>
+                <p>current question asked</p>
+              </span>
+              <h2 class="q_no"><small>#</small>8</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/eight.php"
+                class="form1"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file8_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(0)"
+                  />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file8_2" required />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(1)"
+                  />
+                </div>
+                <!-- 
+
+                            <div class="break" style="width: 100%;height: 2px;background-color: white;"></div>
+                            <div class="text" style="text-align: center;font-size: 1.94rem;">--- Allowed programming extensions ---</div>
+                            <div style="display: flex;font-size: 1.85rem;justify-content: center;" class="newer">
+                                
+                            <input type="checkbox" name="eight_check[]" id="eight_checkBox" value="c" style="margin: .5rem 0 .5rem 0;" checked>C
+                            <input type="checkbox" name="eight_check[]" id="eight_checkBox" value="cpp" style="margin: .5rem 0 .5rem 0;">C++
+                            <input type="checkbox" name="eight_check[]" id="eight_checkBox" value="java" style="margin: .5rem 0 .5rem 0;">Java
+                            </div>
+                            <div style="display: flex;font-size: 1.85rem;justify-content: center;" class="newer">
+                             
+                            <input type="checkbox" name="eight_check[]" id="eight_checkBox" value="php" style="margin: .5rem 0 .5rem 0;">PHP
+                            <input type="checkbox" name="eight_check[]" id="eight_checkBox" value="py" style="margin: .5rem 0 .5rem 0;">Python
+                            <input type="checkbox" name="eight_check[]" id="eight_checkBox" value="shell" style="margin: .5rem 0 .5rem 0;">Shell Script
+
+                            </div>
+
+
+
+                             -->
+              </form>
+
+              <div class="submitForm1">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(1)"
+            onmouseover="changeBorderBlue(1)"
+            onmouseout="changeBorderBack(1)"
+          >
+            <div class="iconBox">
+              <img src="./icons/3b_b.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>pattern replace</h4>
+                <p>swap for search pattern with another one</p>
+              </span>
+              <h2 class="q_no"><small>#</small>9</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/nine.php"
+                class="form2"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Input files</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file9_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(2)"
+                  />
+                </div>
+
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file9_2" required />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(3)"
+                  />
+                </div>
+                <div
+                  class="break"
+                  style="width: 100%; height: 2px; background-color: white"
+                ></div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file9_3"
+                    placeholder="pattern to replace"
+                    style="max-width: 45%"
+                    maxlength="20"
+                    required
+                  />
+                  <div class="or" style="padding: 0">&nbsp;&nbsp;</div>
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file9_4"
+                    placeholder="pattern to replace with"
+                    style="max-width: 45%"
+                    maxlength="20"
+                    required
+                  />
+                </div>
+              </form>
+              <div class="submitForm2">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(2)"
+            onmouseover="changeBorderBlue(2)"
+            onmouseout="changeBorderBack(2)"
+          >
+            <div class="iconBox">
+              <img src="./icons/3b_c.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>ascii positions</h4>
+                <p>
+                  extract each character from file, display position with its
+                  ASCII
+                </p>
+              </span>
+              <h2 class="q_no"><small>#</small>10</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/ten.php"
+                class="form3"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file10_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(4)"
+                  />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file10_2" required />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(5)"
+                  />
+                </div>
+              </form>
+              <div class="submitForm3">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(3)"
+            onmouseover="changeBorderBlue(3)"
+            onmouseout="changeBorderBack(3)"
+          >
+            <div class="iconBox">
+              <img src="./icons/3b_d.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>just texts</h4>
+                <p>extract only text characters from file</p>
+              </span>
+              <h2 class="q_no"><small>#</small>11</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/eleven.php"
+                class="form4"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file11_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(6)"
+                    name="file1"
+                  />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file11_2" required />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(7)"
+                    name="file2"
+                  />
+                </div>
+                <div
+                  class="break"
+                  style="width: 100%; height: 2px; background-color: white"
+                ></div>
+
+                <div style="display: flex; flex-direction: column">
+                  <div style="display: flex">
+                    <span> only extract </span>
+                    <select
+                      name="eleven_select"
+                      id=""
+                      class="selection"
+                      style="width: 30%"
+                    >
+                      <option value="text">texts</option>
+                      <option value="alphas">alphabets</option>
+                      <option value="sText">small text</option>
+                      <option value="cText">capital text</option>
+                      <option value="digit">digits</option>
+                      <option value="splChar">special chars</option>
+                    </select>
+                    <span> from input file </span>
+                  </div>
+                </div>
+              </form>
+              <div class="submitForm4">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(4)"
+            onmouseover="changeBorderBlue(4)"
+            onmouseout="changeBorderBack(4)"
+          >
+            <div class="iconBox">
+              <img src="./icons/3b_h.png" alt="" />
+            </div>
+            <div class="details">
+              <h2 class="q_no"><small>#</small>12</h2>
+              <span style="display: grid">
+                <h4>data records</h4>
+                <p>a file stores all entered records of people</p>
+              </span>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/twelve.php"
+                class="form5"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div style="display: flex; flex-direction: column">
+                  <div class="text">Output file</div>
+                  <div style="display: flex">
+                    <input type="text" id="textarea" name="file12_1" required />
+                    <div class="or">or</div>
+                    <input
+                      name="text_area[]"
+                      type="file"
+                      id="filename"
+                      onchange="getOutput(8)"
+                    />
+                  </div>
+                  <div style="display: flex; margin: none">
+                    <span>We need to </span>
+                    <select
+                      name="twelve_select[]"
+                      class="selection"
+                      id="ddLId"
+                      style="width: 30%"
+                      onchange="changeOption(this.value)"
+                    >
+                      <option value="1">add</option>
+                      <option value="2">search for</option>
+                      <option value="3">delete</option>
+                      <option value="4">modify</option>
+                      <option value="5">display</option>
+                    </select>
+                    <span> a record </span>
+                  </div>
+                  <div
+                    class="break"
+                    style="width: 100%; height: 2px; background-color: white"
+                  ></div>
+
+                  <!-- add record -->
+                  <div class="add_record" style="display: none">
+                    <span>Add Record:</span>
+                    <div style="display: flex; flex-direction: column">
+                      <div class="name" style="display: flex">
+                        <span style="width: 17%">Name</span>
+                        <input name="add_record[]" type="text" id="textarea1" />
+                      </div>
+                      <div class="name" style="display: flex">
+                        <span style="width: 17%">Email</span>
+                        <input
+                          name="add_record[]"
+                          type="email"
+                          id="textarea1"
+                        />
+                      </div>
+                      <div class="name" style="display: flex">
+                        <span style="width: 17%">Phone</span>
+                        <input
+                          name="add_record[]"
+                          type="number"
+                          id="textarea1"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- search record -->
+                  <div class="add_record" style="display: none">
+                    <span>Search for a Record which has:</span>
+                    <div style="display: flex; flex-direction: column">
+                      <div class="name" style="display: flex">
+                        <span style="width: 30%">name as</span>
+                        <input
+                          name="search_record[]"
+                          type="text"
+                          id="textarea1"
+                          required
+                        />
+                        <select
+                          name="twelve_search_select[]"
+                          id="filename2"
+                          class="selection"
+                          style="width: 15%"
+                        >
+                          <option value="percent">and</option>
+                          <option value="line">or</option>
+                          <option value="line">no</option>
+                        </select>
+                      </div>
+                      <div class="name" style="display: flex">
+                        <span style="width: 30%">email as</span>
+                        <input
+                          name="search_record[]"
+                          type="email"
+                          id="textarea1"
+                          required
+                        />
+                        <select
+                          name="twelve_search_select[]"
+                          id="filename2"
+                          class="selection"
+                          style="width: 15%"
+                        >
+                          <option value="percent">and</option>
+                          <option value="line">or</option>
+                          <option value="line">no</option>
+                        </select>
+                      </div>
+                      <div class="name" style="display: flex">
+                        <span style="width: 30%">phone as</span>
+                        <input
+                          name="search_record[]"
+                          type="number"
+                          id="textarea1"
+                          required
+                        />
+                        <select
+                          name="twelve_search_select[]"
+                          id="filename2"
+                          class="selection"
+                          style="width: 15%"
+                        >
+                          <option value="percent">-</option>
+                          <option value="line">no</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- delete record -->
+                  <div class="add_record" style="display: none">
+                    <span>Delete Record which has:</span>
+                    <div style="display: flex; flex-direction: column">
+                      <div class="name" style="display: flex">
+                        <span style="width: 30%">name as</span>
+                        <input
+                          name="delete_record[]"
+                          type="text"
+                          id="textarea1"
+                          required
+                        />
+                        <select
+                          name="twelve_delete_select[]"
+                          id="filename3"
+                          class="selection"
+                          style="width: 15%"
+                        >
+                          <option value="percent">and</option>
+                          <option value="line">or</option>
+                          <option value="line">no</option>
+                        </select>
+                      </div>
+                      <div class="name" style="display: flex">
+                        <span style="width: 30%">email as</span>
+                        <input
+                          name="delete_record[]"
+                          type="email"
+                          id="textarea1"
+                          required
+                        />
+                        <select
+                          name="twelve_delete_select[]"
+                          id="filename3"
+                          class="selection"
+                          style="width: 15%"
+                        >
+                          <option value="percent">and</option>
+                          <option value="line">or</option>
+                          <option value="line">no</option>
+                        </select>
+                      </div>
+                      <div class="name" style="display: flex">
+                        <span style="width: 30%">phone as</span>
+                        <input
+                          name="delete_record[]"
+                          type="number"
+                          id="textarea1"
+                          required
+                        />
+                        <select
+                          name="twelve_delete_select[]"
+                          id="filename3"
+                          class="selection"
+                          style="width: 15%"
+                        >
+                          <option value="percent">-</option>
+                          <option value="line">no</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- modify record -->
+                  <div class="add_record" style="display: none">
+                    <span>Modify Existing Record:</span>
+                    <div style="display: flex; flex-direction: column">
+                      <div
+                        class="name"
+                        style="display: flex; margin-top: 0; margin-bottom: 0"
+                      >
+                        <span style="width: 17%">Name</span>
+                        <div
+                          style="
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                          "
+                        >
+                          <input
+                            type="text"
+                            name="modify_record[]"
+                            id="textarea1"
+                            style="width: 95%"
+                            placeholder="existing name"
+                          />
+                          <input
+                            type="text"
+                            name="modify_record[]"
+                            id="textarea1"
+                            style="width: 95%"
+                            placeholder="new name"
+                          />
+                        </div>
+                        <select
+                          name="twelve_modify_select[]"
+                          id="filename3"
+                          class="selection"
+                          style="width: 30%"
+                        >
+                          <option value="percent">yes</option>
+                          <option value="line">no</option>
+                        </select>
+                      </div>
+                      <div class="name" style="display: flex">
+                        <span style="width: 17%">Email</span>
+                        <div
+                          style="
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                          "
+                        >
+                          <input
+                            type="text"
+                            name="modify_record[]"
+                            id="textarea1"
+                            style="width: 95%"
+                            placeholder="existing email"
+                          />
+                          <input
+                            type="text"
+                            name="modify_record[]"
+                            id="textarea1"
+                            style="width: 95%"
+                            placeholder="new email"
+                          />
+                        </div>
+                        <select
+                          name="twelve_modify_select[]"
+                          id="filename3"
+                          class="selection"
+                          style="width: 30%"
+                        >
+                          <option value="percent">yes</option>
+                          <option value="line">no</option>
+                        </select>
+                      </div>
+                      <div
+                        class="name"
+                        style="display: flex; margin-top: 0; margin-bottom: 0"
+                      >
+                        <span style="width: 17%">Phone</span>
+                        <div
+                          style="
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                          "
+                        >
+                          <input
+                            type="text"
+                            name="modify_record[]"
+                            id="textarea1"
+                            style="width: 95%"
+                            placeholder="existing phone"
+                          />
+                          <input
+                            type="text"
+                            name="modify_record[]"
+                            id="textarea1"
+                            style="width: 95%"
+                            placeholder="new phone"
+                          />
+                        </div>
+                        <select
+                          name="twelve_modify_select[]"
+                          id="filename3"
+                          class="selection"
+                          style="width: 30%"
+                        >
+                          <option value="percent">yes</option>
+                          <option value="line">no</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- display record -->
+                  <div class="add_record" style="display: none">
+                    <span>Display Records of:</span>
+                    <div style="display: flex">
+                      <span style="width: 25%">name</span>
+                      <select
+                        name="twelve_display_select[]"
+                        id="filename3"
+                        class="selection"
+                        style="width: 15%"
+                      >
+                        <option value="yes">yes</option>
+                        <option value="line">no</option>
+                      </select>
+                      <span style="width: 25%">| email</span>
+                      <select
+                        name="twelve_display_select[]"
+                        id="filename3"
+                        class="selection"
+                        style="width: 15%"
+                      >
+                        <option value="yes">yes</option>
+                        <option value="line">no</option>
+                      </select>
+                      <span style="width: 25%">| phone</span>
+                      <select
+                        name="twelve_display_select[]"
+                        id="filename3"
+                        class="selection"
+                        style="width: 15%"
+                      >
+                        <option value="yes">yes</option>
+                        <option value="line">no</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="submitForm5">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(5)"
+            onmouseover="changeBorderBlue(5)"
+            onmouseout="changeBorderBack(5)"
+          >
+            <div class="iconBox">
+              <img src="./icons/3b_f.png" alt="" />
+            </div>
+            <div class="details">
+              <h2 class="q_no"><small>#</small>13</h2>
+              <span style="display: grid">
+                <h4>dna sequence</h4>
+                <p>chars to bits to pattern</p>
+              </span>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/thirteen.php"
+                class="form6"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file13_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(9)"
+                  />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file13_2" required />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(10)"
+                  />
+                </div>
+              </form>
+              <div class="submitForm6">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(6)"
+            onmouseover="changeBorderBlue(6)"
+            onmouseout="changeBorderBack(6)"
+          >
+            <div class="iconBox">
+              <img src="./icons/3b_g.png" alt="" />
+            </div>
+            <div class="details">
+              <h2 class="q_no"><small>#</small>14</h2>
+              <span style="display: grid">
+                <h4>score records</h4>
+                <p>read details from 3 files and compute results</p>
+              </span>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/fourteen.php"
+                class="form7"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file14_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(11)"
+                  />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file14_2" required />
+                  <div class="or">or</div>
+                  <input
+                    name="text_area[]"
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(12)"
+                  />
+                </div>
+              </form>
+              <div class="submitForm7">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="./js/3b_script.js"></script>
+  </body>
+</html>

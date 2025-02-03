@@ -1,0 +1,40 @@
+.main_body section:before {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  background: linear-gradient(#1eff29, #3c91ff);
+  border-radius: 50%;
+  transform: translate(calc(0vw - 550px), -20vh);
+  animation: bubbles 60s linear infinite;
+  transition: 0.2s;
+}
+@keyframes bubbles {
+  0%,
+  100% {
+    transform: translate(calc(0vw - 550px), -20vh);
+  }
+  50% {
+    transform: translate(calc(0vw - 250px), 20vh);
+  }
+}
+.main_body section:after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(#ccc45b, #f33a21);
+  border-radius: 50%;
+  transform: translate(400px, -120px);
+  animation: bubbles2 60s linear infinite;
+  transition: 0.2s;
+}
+@keyframes bubbles2 {
+  0%,
+  100% {
+    transform: translate(41vw, -120px);
+  }
+  50% {
+    transform: translate(220px, -10px);
+  }
+}

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/design.css" />
+    <script src="main_page.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./jquery/index.js"></script>
+  </head>
+  <body onload="scroll_headers()">
+    <!-- shifters -->
+    <div class="shifters">
+      <div class="containers" id="re3" style="margin-top: 35px">
+        <img src="./icons/3b.png" alt="" />
+      </div>
+      <div class="containers" id="re2">
+        <img src="./icons/dots.png" alt="" style="width: 2.1vw" />
+      </div>
+    </div>
+
+    <!-- header page -->
+    <div class="header" id="side_L">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_R">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_L1">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+    <div class="header" id="side_R1">
+      <div class="title">
+        <span>WINDOW SLIDER</span>
+      </div>
+    </div>
+
+    <!-- main content -->
+    <main class="main_body">
+      <section>
+        <div class="card">
+          <div
+            class="list"
+            onclick="expand(0)"
+            onmouseover="changeBorderBlue(0)"
+            onmouseout="changeBorderBack(0)"
+          >
+            <div class="iconBox">
+              <img src="./icons/1.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>one to one</h4>
+                <p>copy content of one file into another</p>
+              </span>
+              <h2 class="q_no"><small>#</small>1</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/three_one.php"
+                class="form1"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file1_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(0)" />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file1_2" required />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(1)" />
+                </div>
+              </form>
+
+              <div class="submitForm1">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(1)"
+            onmouseover="changeBorderBlue(1)"
+            onmouseout="changeBorderBack(1)"
+          >
+            <div class="iconBox">
+              <img src="./icons/2.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>2 files into one</h4>
+                <p>copy content of the two into one output file</p>
+              </span>
+              <h2 class="q_no"><small>#</small>2</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/three_two.php"
+                class="form2"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Input files</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file2_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(2)" />
+                </div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file2_2"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(3)" />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file2_3" required />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(4)" />
+                </div>
+              </form>
+              <div class="submitForm2">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(2)"
+            onmouseover="changeBorderBlue(2)"
+            onmouseout="changeBorderBack(2)"
+          >
+            <div class="iconBox">
+              <img src="./icons/3.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>reverse content</h4>
+                <p>output file stores reversed content of entered one</p>
+              </span>
+              <h2 class="q_no"><small>#</small>3</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/three_three.php"
+                class="form3"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file3_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(5)" />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file3_2" required />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(6)" />
+                </div>
+              </form>
+              <div class="submitForm3">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(3)"
+            onmouseover="changeBorderBlue(3)"
+            onmouseout="changeBorderBack(3)"
+          >
+            <div class="iconBox">
+              <img src="./icons/4.png" alt="" />
+            </div>
+            <div class="details">
+              <span style="display: grid">
+                <h4>split it</h4>
+                <p>split given file into 2 output files</p>
+              </span>
+              <h2 class="q_no"><small>#</small>4</h2>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/three_four.php"
+                class="form4"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file4_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(7)"
+                    name="file1"
+                  />
+                </div>
+                <div class="text">Output files</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file4_2" required />
+                  <div class="or">or</div>
+                  <input
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(8)"
+                    name="file2"
+                  />
+                </div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file4_3" required />
+                  <div class="or">or</div>
+                  <input
+                    type="file"
+                    id="filename"
+                    onchange="getOutput(9)"
+                    name="file3"
+                  />
+                </div>
+                <div
+                  class="break"
+                  style="width: 100%; height: 2px; background-color: white"
+                ></div>
+
+                <div style="display: flex; flex-direction: column">
+                  <div style="display: flex">
+                    <select
+                      name="four_select[]"
+                      id="filename1"
+                      class="selection"
+                      style="width: 6vw"
+                    >
+                      <option value="first">First</option>
+                      <option value="second">Second</option>
+                    </select>
+                    <span> output file contains : </span>
+                  </div>
+
+                  <div style="display: flex">
+                    <input
+                      type="number"
+                      name="three_4number"
+                      id="textarea"
+                      placeholder="some number of"
+                      style="max-width: 40%"
+                      min="1"
+                    />
+                    <div class="or" style="padding: 0">+</div>
+                    <select
+                      name="four_select[]"
+                      id="filename1"
+                      class="selection"
+                    >
+                      <option value="percent">%age</option>
+                      <option value="line">lines</option>
+                      <option value="char">char</option>
+                    </select>
+                    <span> of input file</span>
+                  </div>
+                </div>
+              </form>
+              <div class="submitForm4">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(4)"
+            onmouseover="changeBorderBlue(4)"
+            onmouseout="changeBorderBack(4)"
+          >
+            <div class="iconBox">
+              <img src="./icons/5.png" alt="" />
+            </div>
+            <div class="details">
+              <h2 class="q_no"><small>#</small>5</h2>
+              <span style="display: grid">
+                <h4>convert case</h4>
+                <p>caps to small or vice-versa</p>
+              </span>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/three_five.php"
+                class="form5"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="options">
+                  <label class="control control--radio"
+                    >&nbsp;To small &nbsp;
+                    <input
+                      type="radio"
+                      name="five_radio"
+                      value="small"
+                      checked="checked"
+                    />
+                    <div class="control__indicator"></div>
+                  </label>
+                  <div
+                    class="bar"
+                    style="width: 1.5px; height: 100%; background-color: white"
+                  ></div>
+                  &nbsp;&nbsp;
+                  <label class="control control--radio"
+                    >&nbsp;To CAPS
+                    <input type="radio" name="five_radio" value="caps" />
+                    <div class="control__indicator"></div>
+                  </label>
+                </div>
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file5_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(10)" />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file5_2" required />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(11)" />
+                </div>
+              </form>
+              <div class="submitForm5">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="list"
+            onclick="expand(5)"
+            onmouseover="changeBorderBlue(5)"
+            onmouseout="changeBorderBack(5)"
+          >
+            <div class="iconBox">
+              <img src="./icons/6.png" alt="" />
+            </div>
+            <div class="details">
+              <h2 class="q_no"><small>#</small>6</h2>
+              <span style="display: grid">
+                <h4>words of a file</h4>
+                <p>word extract, show them and export</p>
+              </span>
+            </div>
+          </div>
+          <div class="forms">
+            <div class="container">
+              <form
+                action="./php/three_six.php"
+                class="form6"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="text">Input file</div>
+                <div style="display: flex">
+                  <input
+                    type="text"
+                    id="textarea"
+                    name="file6_1"
+                    readonly
+                    required
+                  />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(12)" />
+                </div>
+                <div class="text">Output file</div>
+                <div style="display: flex">
+                  <input type="text" id="textarea" name="file6_2" required />
+                  <div class="or">or</div>
+                  <input type="file" id="filename" onchange="getOutput(13)" />
+                </div>
+              </form>
+              <div class="submitForm6">
+                <input type="button" value="Submit" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/index_script.js"></script>
+  </body>
+</html>

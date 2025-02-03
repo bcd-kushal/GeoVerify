@@ -1,0 +1,7 @@
+.active-aside, .active-aside:hover {
+  background: #f6737365;
+}
+.active-aside span:nth-child(2) {
+  opacity: 1;
+  transform: translateX(0);
+}

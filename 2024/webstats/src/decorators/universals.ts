@@ -1,0 +1,1 @@
+export const maxContentSpace            = "max-w-[1280px] relative left-1/2 -translate-x-1/2"

@@ -1,0 +1,114 @@
+#username:focus {
+  outline: none;
+}
+input[type="button"] {
+  width: 17vw;
+  height: 6vh;
+  position: relative;
+  margin-top: 3vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+  font-size: 3vh;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: 0.5s;
+  -webkit-text-stroke: 0px #101820ff;
+  font-weight: bolder;
+  color: #f2aa4cff;
+}
+input[type="button"]:nth-child(1) {
+  border: 1.5px solid #f2aa4cff;
+  transition: 0.5s;
+}
+input[type="button"]:nth-child(1):hover {
+  background: #f2aa4cff;
+  color: #101820ff;
+}
+
+input[type="button"]:nth-child(2):hover {
+  border: 1.5px solid #f2aa4cff;
+  transition: 0.5s;
+}
+
+.uName,
+.pWord {
+  animation: fadeOut 4s linear;
+}
+@keyframes fadeOut {
+  0%,
+  30% {
+    opacity: 1;
+  }
+  47%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.stickU {
+  animation: stickAnimateL 4s linear;
+}
+.stickP {
+  animation: stickAnimateR 4s linear;
+}
+.buttons {
+  animation: goDown 4s linear;
+}
+.title span {
+  animation: goUp 4s linear;
+}
+@keyframes stickAnimateL {
+  0%,
+  30% {
+    left: 0;
+  }
+  47%,
+  100% {
+    left: -42vw;
+  }
+}
+@keyframes stickAnimateR {
+  0%,
+  30% {
+    right: 0;
+  }
+  47%,
+  100% {
+    right: -42vw;
+  }
+}
+@keyframes goDown {
+  0%,
+  30% {
+    bottom: 10vh;
+  }
+  47%,
+  100% {
+    bottom: -30vh;
+  }
+}
+@keyframes goUp {
+  0%,
+  30% {
+    transform: translate(-50%, 0%);
+  }
+  47%,
+  100% {
+    transform: translate(-50%, -400%);
+  }
+}
+.mainTitle {
+  animation: fadeIn 4s linear;
+}
+@keyframes fadeIn {
+  0%,
+  48% {
+    opacity: 0;
+  }
+  70%,
+  100% {
+    opacity: 1;
+  }
+}
