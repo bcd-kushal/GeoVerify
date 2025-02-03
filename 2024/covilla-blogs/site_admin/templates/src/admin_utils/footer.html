@@ -1,0 +1,89 @@
+<!-- footer html -->
+<section id="main-footer" style="margin-bottom: 0;">
+    <div class="row-container">
+
+        
+        <div id="social-accounts" class="row small-gutters three-column-tablet two-column-phone">
+            {% for x in statistics %}
+            <div class="column-container">
+                <a id="facebook" style="box-shadow: none; border: .5px solid rgba(164, 164, 164, .6);"
+                    class="column card card-small elevation-1 centered accent-red">
+                    <span style="font-weight: 990; color: red; font-size: 1.8rem;">{{x.data}}</span>
+                    <span>{{x.for}}</span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        
+        
+        <div id="footer-menu" class="row three-column-tablet two-column-phone">
+            <div class="column-container" style="padding-right: 80px;padding-bottom: 40px;">
+                <div class="column">
+                    <h4 style="font-size: .8rem; white-space: nowrap;"><a id="logo" href="/" style="letter-spacing: 1.5px;font-weight: 990; font-size: 2.5rem; white-space: nowrap; color: red !important;">
+                        MyBlogs
+                    </a></h4>
+                    <div class="" style="margin-top: 15px;font-size: .9rem;">
+                        <em>Blogs by the community, to the community, for the community.</em>
+                    </div>
+                </div>
+            </div>
+            <div class="" style="display: flex; flex-wrap: wrap;gap: 25px;min-width: 35vw;justify-content: flex-end;">
+                <div class="column-container">
+                    <div class="column">
+                        <a href="/">
+                            <h3>quick links</h3>
+                        </a>
+                        <ul class="link-list">
+                            <li>
+                                <a href="/recents/">Recent Blogs</a>
+                            </li>
+                            <li>
+                                <a href="/subscribe/">Subscribe</a>
+                            </li>
+                            <li>
+                                <a href="/categories/">All categories</a>
+                            </li>
+                            <li>
+                                <a class="with-callout" href="/admin-login/">
+                                    Admin login
+                                    <!-- <span class="button-callout accent-red show-callout elevation-1">Brand New!</span> -->
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column-container">
+                    <div class="column">
+                        <a href="/members-area/help/">
+                            <h3>read by category</h3>
+                        </a>
+                        <ul class="link-list">
+                            <li>
+                                <a href="/categories/tech/">Technology</a>
+                            </li>
+                            <li>
+                                <a href="/categories/design/">Design & Art</a>
+                            </li>
+                            <li>
+                                <a href="/categories/my-life/">Myself</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/categories/profession/">Profession</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="/categories/community/">Community</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 28px;">
+            <div class="column-container">
+                <div class="column centered">
+                    <p style="font-size: .8rem;">Copyright &copy; 2024 MyBlogs Solutions &reg;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load sass_tags %}
+    <title>All Categories: MyBlogs</title>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% sass_src 'scss/index.scss' %}" />
+
+    <script type="text/javascript">
+
+        function popup(url, width, height, name) {
+            if (!name) {
+                name = '_popup';
+            }
+
+            window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+            return false;
+        }
+
+        function jumpto() {
+            var page = prompt('Enter\u0020the\u0020page\u0020number\u0020you\u0020wish\u0020to\u0020go\u0020to:', '');
+            var perpage = '';
+            var base_url = '';
+
+            if (page !== null && !isNaN(page) && page > 0) {
+                document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * perpage);
+            }
+        }
+
+
+
+        function find_username(url) {
+            popup(url, 760, 570, '_usersearch');
+            return false;
+        }
+
+
+
+
+        function marklist(id, name, state) {
+            var parent = document.getElementById(id);
+            if (!parent) {
+                eval('parent = document.' + id);
+            }
+
+            if (!parent) {
+                return;
+            }
+
+            var rb = parent.getElementsByTagName('input');
+
+            for (var r = 0; r < rb.length; r++) {
+                if (rb[r].name.substr(0, name.length) == name) {
+                    rb[r].checked = state;
+                }
+            }
+        }
+
+
+        // ]]>
+    </script>
+</head>
+
+<body class="forum">
+
+
+    <!-- HEADER SECTION ===================================== -->
+    {% include 'src/admin_utils/header.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+
+
+    <!-- main content -->
+
+    <section>
+
+        <!-- all categories -->
+        <div class="row-container narrow">
+            <div class="row">
+                <div class="column-container">
+                    <div class="column centered accent-red">
+                        <h1>Select a category to edit</h1>
+                        <h2 style="color: #ff4c00;">"{{blog_title}}"</h2>
+                        <p class="lead accent-red" style="text-align: center;">
+                            {{subtitle}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- all categories -->
+        <div id class="row-container">
+            <div class="row two-column small-gutters">
+                <div class="column-container">
+                    <div class="column blurb card centered accent-red">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" width="60"
+                            viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M0 64C0 46.3 14.3 32 32 32H80h48c17.7 0 32 14.3 32 32s-14.3 32-32 32H112V208H336V96H320c-17.7 0-32-14.3-32-32s14.3-32 32-32h48 48c17.7 0 32 14.3 32 32s-14.3 32-32 32H400V240 416h16c17.7 0 32 14.3 32 32s-14.3 32-32 32H368 320c-17.7 0-32-14.3-32-32s14.3-32 32-32h16V272H112V416h16c17.7 0 32 14.3 32 32s-14.3 32-32 32H80 32c-17.7 0-32-14.3-32-32s14.3-32 32-32H48V240 96H32C14.3 96 0 81.7 0 64z" />
+                        </svg>
+                        <h3 class="card-title">Blog header</h3>
+                        <p>
+                            The title, thumbnail and tag of the blog that appears foremost.
+                        </p>
+                        <form action="/admin/edit/header/" method="post" style="width: 100%;margin-top: 18px;">
+                            {% csrf_token %}
+                            <div class="" style="display: none;">
+                                <input type="text" name="blog_title" value="{{blog_title}}" readonly>
+                            </div>
+
+                            <button type="submit" class="button fullwidth-button">
+                                Edit header
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="column-container">
+                    <div class="column blurb card centered accent-red">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" width="60"
+                            viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M288 64c0 17.7-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32H256c17.7 0 32 14.3 32 32zm0 256c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c17.7 0 32 14.3 32 32zM0 192c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                        </svg>
+                        <h3 class="card-title">Blog body</h3>
+                        <p>
+                            The intro and body that makes the blog chunk
+                        </p>
+
+                        <form action="/admin/edit/body/" method="post" style="width: 100%;margin-top: 18px;">
+                            {% csrf_token %}
+                            <div class="" style="display: none;">
+                                <input type="text" name="blog_title" value="{{blog_title}}" readonly>
+                            </div>
+
+                            <button type="submit" class="button fullwidth-button">
+                                Edit body
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- FOOTER SECTION ===================================== -->
+        {% include 'src/admin_utils/footer.html' %}
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load sass_tags %}
+    <meta charset="utf-8" />
+    <title>Admin Login: MyBlogs</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% sass_src 'scss/subscribe.scss' %}"/>
+    <link rel="stylesheet" href="{% sass_src 'scss/index.scss' %}"/>
+</head>
+
+<body class="contact">
+    
+    <!-- HEADER SECTION ===================================== -->
+    {% include 'src/admin_utils/header.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+
+    <!-- CONTACT US FORM -->
+    <section>
+        <div class="row-container narrow">
+            <div class="row">
+                <div class="column-container">
+                    <div class="column centered">
+                        <h1>Login as Admin</h1>
+                        <p class="lead centered">Confirm you are the admin to proceed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-container narrow contact-form">
+            <div id="contact-cards" class="row">
+                <div class="column-container"> 
+                    <div class="column blurb card accent-red centered" style="padding: 30px 32px 0px;">
+                        <form name="et-contactform" id="et_manage_form"
+                            action="" method="post">
+                            {% csrf_token %}
+                            <div class="et_manage_input">
+                                <input type="text" id="contact-email" placeholder="Admin Username" autocomplete="off"
+                                    name="admin_name" value size="20" tabindex="20" required>
+                                <label style="color: red;">Admin Username</label>
+                            </div>
+                            
+                            <div class="et_manage_input">
+                                <input type="password" id="contact-password" placeholder="Password" autocomplete="off"
+                                    name="admin_password" value size="20" tabindex="20" required>
+                                <label style="color: red;">Password</label>
+                            </div>
+
+                            <input class="button primary-button fullwidth-button" type="submit" name="submit"
+                                id="contact-submit" value="Login" tabindex="100">
+                                <a class="button tertiary-button accent-teal" href="/" style="position: relative;left: 50%;transform: translateX(-50%); background: transparent; width: fit-content; padding-left: 40px; padding-right: 40px;">GO BACK</a>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- FOOTER SECTION ===================================== -->
+    {% include 'src/admin_utils/footer.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+</body>
+
+</html>

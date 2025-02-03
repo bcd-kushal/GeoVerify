@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load sass_tags %}
+    <meta charset="utf-8" />
+    <title>{{tab_title}}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% sass_src 'scss/index.scss' %}">
+</head>
+
+<body class="home">
+
+
+    <!-- HEADER SECTION ===================================== -->
+    {% include 'src/utils/header.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+    <!-- MAIN SECTION ===================================== -->
+
+
+    {% if blogs|length == 0 %}
+    <section class="standard-post ">
+        <div class="row-container with-editorial-note">
+            <div class="row"
+                style="margin-top: 200px; margin-bottom: 200px; width: 100%;display: flex;justify-content:center;align-items: center;flex-direction: column;gap: 25px;">
+                <h3 class="centred" style="display: flex; justify-content: center;width: 100%;">No blogs here...</h3>
+                <a class="button tertiary-button accent-teal" onclick="window.history.back()" style="position: relative;left: 50%;transform: translateX(-50%);">GO BACK</a>
+            </div>
+        </div>
+    </section>
+    {% else %}
+    <section class="standard-post ">
+
+        <!-- title and search -->
+        <div class="row-container with-editorial-note">
+            <div class="row" style="margin-top: 40px;">
+                <div class="column-container">
+                    <div class="column centered post-header accent-teal">
+                        <h1 style="font-size: 3rem;">{{page_title}}</h1>
+                        <p class="lead" style="text-align: center;">{{page_brief}}</p>
+                        <form style="margin-top: 30px;" id="search-form" role="search" method="get" id="header_search"
+                            action="/search">
+                            <div class="et_manage_input">
+                                <input type="text" value placeholder="Search Blogs" name="keywords">
+                                <label style="color: teal;">Enter Search Term</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- all blogs -->
+        <div class="row-container wide-width blog-index">
+            <div class="row three-column small-gutters">
+                {% for x in blogs %}
+                <div class="column-container" onclick="location.href='{{x.link}}'">
+                    <div class="column card accent-teal cardd"
+                        style="padding: 0; overflow: hidden; height: 100%; border-radius: 20px;">
+                        <article id="post-238402"
+                            class="entry article-card post-238402 post type-post status-publish format-standard has-post-thumbnail hentry category-best-website-tools category-design tag-best-graphic-design-software tag-best-tools tag-graphic-design tag-graphic-design-tool"
+                            style="height: 100%;position: relative; border-radius: 20px;">
+                            <div class="post-thumbnail" style="width: 100%;">
+                                <a style="width: 100%; " style="cursor: default;">
+                                    <img src="../../../media/{{x.thumbnail}}" style="width: 100%; height: 253px; object-fit: cover;"
+                                        height="253" width="450" alt="">
+                                </a>
+                            </div>
+                            <h3 style="padding: 20px 26px;"><a href="{{x.link}}">{{x.title}}</a></h3>
+                            <p class="blog-meta" style="padding: 0 26px;">
+                                <span class="published updated" style="font-size: .9rem;">{{x.date}}</span> <br>
+                                <a href="{{x.tag_link}}"
+                                    style="background: rgba(0, 128, 128, 0.174); padding: 5px 8px; border: 1px solid teal; border-radius: 5px; font-size: .8rem; margin-right: 8px;">
+                                    {{x.tag}}
+                                </a>
+                                <span class="comments-number"><a href="{{x.link}}"
+                                        style="padding: 5px 8px; font-size: .8rem; ">
+                                        {{x.comments}} comments
+                                    </a>
+                                </span>
+                            </p>
+                            <p style="padding: 0 26px 124px;">
+                                {{x.brief}}
+                            </p>
+                            <a class="button tertiary-button"
+                                style="width: calc(100% - 52px); transform: translateX(26px); margin: 35px 0 45px; position: absolute; bottom: 0; "
+                                href="{{x.link}}" class="viewfull">
+                                View Full Post
+                            </a>
+                        </article>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+
+
+    </section>
+
+    {% endif %}
+
+    
+
+    {% if recents %}
+
+
+
+        <!-- recent blogs -->
+        <div class="row-container wide-width blog-index">
+
+            <h2 style="text-align: center; min-width: 100% !important;padding: 65px 0 20px;">Recent blogs</h2>
+
+            <div class="row three-column small-gutters">
+                {% for x in recents %}
+                <div class="column-container" onclick="location.href='{{x.link}}'">
+                    <div class="column card accent-teal cardd"
+                        style="padding: 0; overflow: hidden; height: 100%; border-radius: 20px;">
+                        <article id="post-238402"
+                            class="entry article-card post-238402 post type-post status-publish format-standard has-post-thumbnail hentry category-best-website-tools category-design tag-best-graphic-design-software tag-best-tools tag-graphic-design tag-graphic-design-tool"
+                            style="height: 100%;position: relative; border-radius: 20px;">
+                            <div class="post-thumbnail" style="width: 100%;">
+                                <a style="width: 100%; " style="cursor: default;">
+                                    <img src="../../../media/{{x.thumbnail}}" style="width: 100%; height: 253px; object-fit: cover;"
+                                        height="253" width="450" alt="">
+                                </a>
+                            </div>
+                            <h3 style="padding: 20px 26px;"><a href="{{x.link}}">{{x.title}}</a></h3>
+                            <p class="blog-meta" style="padding: 0 26px;">
+                                <span class="published updated" style="font-size: .9rem;">{{x.date}}</span> <br>
+                                <a href="{{x.tag_link}}"
+                                    style="background: rgba(0, 128, 128, 0.174); padding: 5px 8px; border: 1px solid teal; border-radius: 5px; font-size: .8rem; margin-right: 8px;">
+                                    {{x.tag}}
+                                </a>
+                                <span class="comments-number"><a href="{{x.link}}"
+                                        style="padding: 5px 8px; font-size: .8rem; ">
+                                        {{x.comments}} comments
+                                    </a>
+                                </span>
+                            </p>
+                            <p style="padding: 0 26px 124px;">
+                                {{x.brief}}
+                            </p>
+                            <a class="button tertiary-button"
+                                style="width: calc(100% - 52px); transform: translateX(26px); margin: 35px 0 45px; position: absolute; bottom: 0; "
+                                href="{{x.link}}" class="viewfull">
+                                View Full Post
+                            </a>
+                        </article>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+
+
+    {% endif %}
+
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+    <!-- FOOTER SECTION ===================================== -->
+    {% include 'src/utils/footer.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+</body>
+
+</html>

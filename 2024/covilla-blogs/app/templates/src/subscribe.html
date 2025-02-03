@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load sass_tags %}
+    <meta charset="utf-8" />
+    <title>Contact Me</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% sass_src 'scss/subscribe.scss' %}"/>
+    <link rel="stylesheet" href="{% sass_src 'scss/index.scss' %}"/>
+</head>
+
+<body class="contact">
+    
+    <!-- HEADER SECTION ===================================== -->
+    {% include 'src/utils/header.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+
+    <!-- CONTACT US FORM -->
+    <section>
+        <div class="row-container narrow">
+            <div class="row">
+                <div class="column-container">
+                    <div class="column centered">
+                        <h1>Subscribe to our blogs</h1>
+                        <p class="lead centered">Stay updated over our latest blogs as we share an email to you</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-container narrow contact-form">
+            <div id="contact-cards" class="row">
+                <div class="column-container"> 
+                    <div class="column blurb card accent-teal centered" style="padding: 45px 32px;">
+                        <form name="et-contactform" id="et_manage_form"
+                            action="" method="post">
+                            {% csrf_token %}
+                            <div class="et_manage_input">
+                                <input type="email" id="contact-email" placeholder="Email Address" autocomplete="off"
+                                    name="email" value size="20" tabindex="20" required>
+                                <label style="color: teal;">Email Address</label>
+                            </div>
+                            <div class="et_manage_input et_filled" style="margin-top: 15px;">
+                                <select tabindex="30" id="contact-department" name="preference" required>
+                                    <option value="all">All</option>
+                                    <option value="design">Design</option>
+                                    <option value="tech">Technology</option>
+                                    <option value="profession">Profession</option>
+                                    <option value="daily">Daily</option>
+                                    <option value="life">Life</option>
+                                    <option value="community">Community</option>
+                                </select>
+                                <label style="color: teal;">Category of preference</label>
+                            </div>
+                            <input class="button primary-button fullwidth-button" type="submit" name="submit"
+                                id="contact-submit" value="Submit Message" tabindex="100">
+                                <a class="button tertiary-button accent-teal" href="/" style="position: relative;left: 50%;transform: translateX(-50%); background: transparent; width: fit-content; padding-left: 40px; padding-right: 40px;">Back to blogs</a>
+                        </form>
+                        <br>
+                        <p>Data stored as per <a
+                                href="/policy/privacy/">Privacy Policy</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FOOTER SECTION ===================================== -->
+    {% include 'src/utils/footer.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+    
+    <script>
+        window.intercomSettings = {
+            app_id: 'hrpt54hy',
+            custom_launcher_selector: '.launch_intercom',
+            widget: {
+                activator: '#IntercomDefaultWidget'
+            }
+        };
+        (function () { var w = window; var ic = w.Intercom; if (typeof ic === "function") { ic('reattach_activator'); ic('update', intercomSettings); } else { var d = document; var i = function () { i.c(arguments) }; i.q = []; i.c = function (args) { i.q.push(args) }; w.Intercom = i; function l() { var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://widget.intercom.io/widget/hrpt54hy'; var x = d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); } if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } } })()
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'functionality_storage': 'denied',
+            'personalization_storage': 'denied',
+            'security_storage': 'denied',
+            'wait_for_update': 500
+        });
+    </script>
+   <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-1006729916', { 'anonymize_ip': true });
+        gtag('set', 'ads_data_redaction', true);
+    </script>
+    <script type="text/javascript">
+        (function ($) {
+            $(document).ready(function () {
+                var $et_contact_form = $("#et_manage_form"),
+                    $et_contact_form_errors,
+                    $et_user_name = $('#contact-name'),
+                    $et_user_email = $('#contact-email'),
+                    $et_user_department = $('#contact-department'),
+                    $et_user_message = $('#contact-message'),
+                    $et_user_sum = $('#contact-captcha');
+
+                $et_contact_form.submit(function () {
+                    if ($et_user_name.val() != '' && et_is_email_valid($et_user_email.val()) && $et_user_department.val() != '' && $et_user_message.val() != '' && $et_user_sum.val() != '') return true;
+
+                    if ($et_contact_form.find('div#error_messages').length) {
+                        $et_contact_form_errors.html('');
+                    } else {
+                        $et_contact_form.prepend('<div id="error_messages" class="et_errors"></div>');
+                        $et_contact_form_errors = $et_contact_form.find('div#error_messages');
+                    }
+
+                    if ($et_user_name.val() == '') $et_contact_form_errors.append('<p>You need to fill in the Name field</p>');
+
+                    if (!et_is_email_valid($et_user_email.val())) $et_contact_form_errors.append('<p>You need to fill in the Email field correctly</p>');
+
+                    if ($et_user_subject.val() == '') $et_contact_form_errors.append('<p>Please select your reason for contacting us</p>');
+
+                    if ($et_user_message.val() == '') $et_contact_form_errors.append('<p>You need to fill in the Message field </p>');
+
+                    if ($et_user_sum.val() == '') $et_contact_form_errors.append('<p>You need to fill in the Verification code field </p>');
+
+                    return false;
+                });
+
+                function et_is_email_valid(email) {
+                    var reg_expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,8}|[0-9]{1,3})(\]?)$/;
+                    if (reg_expr.test($.trim(email)))
+                        return true;
+                    else
+                        return false;
+                }
+            });
+        })(jQuery)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load sass_tags %}
+    <title>All Categories: MyBlogs</title>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% sass_src 'scss/index.scss' %}" />
+
+    <script type="text/javascript">
+
+        function popup(url, width, height, name) {
+            if (!name) {
+                name = '_popup';
+            }
+
+            window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+            return false;
+        }
+
+        function jumpto() {
+            var page = prompt('Enter\u0020the\u0020page\u0020number\u0020you\u0020wish\u0020to\u0020go\u0020to:', '');
+            var perpage = '';
+            var base_url = '';
+
+            if (page !== null && !isNaN(page) && page > 0) {
+                document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * perpage);
+            }
+        }
+
+
+
+        function find_username(url) {
+            popup(url, 760, 570, '_usersearch');
+            return false;
+        }
+
+
+
+
+        function marklist(id, name, state) {
+            var parent = document.getElementById(id);
+            if (!parent) {
+                eval('parent = document.' + id);
+            }
+
+            if (!parent) {
+                return;
+            }
+
+            var rb = parent.getElementsByTagName('input');
+
+            for (var r = 0; r < rb.length; r++) {
+                if (rb[r].name.substr(0, name.length) == name) {
+                    rb[r].checked = state;
+                }
+            }
+        }
+
+
+        // ]]>
+    </script>
+</head>
+
+<body class="forum">
+
+
+    <!-- HEADER SECTION ===================================== -->
+    {% include 'src/utils/header.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+
+
+    <!-- main content -->
+
+    <section>
+
+        <!-- all categories -->
+        <div class="row-container narrow">
+            <div class="row">
+                <div class="column-container">
+                    <div class="column centered accent-pink">
+                        <h1>All Categories</h1>
+                        <p class="lead accent-purple" style="text-align: center;">
+                            Select from a vast range of blog classes we compose that fits you the best.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- all categories -->
+        <div id class="row-container">
+            <div class="row three-column small-gutters">
+                <div class="column-container">
+                    <div class="column blurb card centered accent-teal" style="height: 100%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" width="60" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H64c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24V448c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V280h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448V176h40c13.3 0 24-10.7 24-24s-10.7-24-24-24H448c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H280V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H176V24zM160 128H352c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160V352H352V160z"/></svg>
+                        <h3 class="card-title">Technology</h3>
+                        <p>
+                            Explore the latest in tech innovations, from cutting-edge gadgets to breakthrough software. Stay informed on the digital frontier with us.
+                        </p>
+                        <a class="button fullwidth-button" href="/categories/tech/">
+                            Check "Technology" Blogs
+                        </a>
+                    </div>
+                </div>
+                <div class="column-container">
+                    <div class="column blurb card centered accent-teal" style="height: 100%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" width="60" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+                        <h3 class="card-title">Design</h3>
+                        <p>
+                            Unleash creativity in our design realm. Discover aesthetic marvels, innovative concepts, and trends shaping the visual landscape. Elevate your inspiration
+                        </p>
+                        <a class="button fullwidth-button" href="/categories/design/">
+                            Check "Design" Blogs
+                        </a>
+                    </div>
+                </div>
+                <div class="column-container">
+                    <div class="column blurb card centered accent-teal" style="height: 100%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" width="60" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M160 0c-6.3 0-12 3.7-14.6 9.5L120.6 64.9 63.9 43.2c-5.9-2.3-12.6-.8-17 3.6s-5.9 11.1-3.6 17l21.7 56.7L9.5 145.4C3.7 148 0 153.7 0 160s3.7 12 9.5 14.6l55.4 24.8L43.2 256.1c-2.3 5.9-.8 12.6 3.6 17s11.1 5.9 17 3.6l56.7-21.7 24.8 55.4c2.6 5.8 8.3 9.5 14.6 9.5s12-3.7 14.6-9.5l24.8-55.4 56.7 21.7c5.9 2.3 12.6 .8 17-3.6s5.9-11.1 3.6-17l-21.7-56.7 55.4-24.8c5.8-2.6 9.5-8.3 9.5-14.6s-3.7-12-9.5-14.6l-55.4-24.8 21.7-56.7c2.3-5.9 .8-12.6-3.6-17s-11.1-5.9-17-3.6L199.4 64.9 174.6 9.5C172 3.7 166.3 0 160 0zm0 96a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm32 64a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm312 16c0-17.7 14.3-32 32-32s32 14.3 32 32v53.4c-14.8 7.7-24 23.1-24 44.6c0 16.8 16 44 37.4 67.2c5.8 6.2 15.5 6.2 21.2 0C624 318 640 290.7 640 274c0-21.5-9.2-37-24-44.6V176c0-44.2-35.8-80-80-80s-80 35.8-80 80v22.7c-9.8-4.3-20.6-6.7-32-6.7c-44.2 0-80 35.8-80 80v21.4c-14.8 7.7-24 23.1-24 44.6c0 16.8 16 44 37.4 67.2c5.8 6.2 15.5 6.2 21.2 0C400 382 416 354.7 416 338c0-21.5-9.2-37-24-44.6V272c0-17.7 14.3-32 32-32s32 14.3 32 32v8V448H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H608c17.7 0 32-14.3 32-32s-14.3-32-32-32H504V280v-8V176z"/></svg>
+                        <h3 class="card-title">Life</h3>
+                        <p>
+                            Navigate life's journey with insights on well-being, personal development, and meaningful experiences. Embrace a fulfilling and purpose-driven existence with us.
+                        </p>
+                        <a class="button fullwidth-button" href="/categories/life/">
+                            Check "Life" Blogs
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row three-column small-gutters">
+                <div class="column-container">
+                    <div class="column blurb card centered accent-teal" style="height: 100%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" width="60" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7H162.5c0 0 0 0 .1 0H168 280h5.5c0 0 0 0 .1 0H417.3c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2H224 204.3c-12.4 0-20.1 13.6-13.7 24.2z"/></svg>
+                        <h3 class="card-title">Profession</h3>
+                        <p>
+                            Navigate the professional landscape with expert advice, career insights, and industry trends. Elevate your professional journey with our tailored guidance.
+                        </p>
+                        <a class="button fullwidth-button" href="/categories/profession/">Check "Profession" Blogs</a>
+                    </div>
+                </div>
+                <div class="column-container">
+                    <div class="column blurb card centered accent-teal" style="height: 100%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" width="60" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M342.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 178.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l80 80c12.5 12.5 32.8 12.5 45.3 0l160-160zm96 128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 402.7 54.6 297.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l256-256z"/></svg>
+                        <h3 class="card-title">Daily</h3>
+                        <p>
+                            Embark on a daily exploration with us. Uncover bite-sized insights, news, and tips spanning diverse topics to enrich your day. Daily blogs are the perfect way to it.
+                        </p>
+                        <a class="button fullwidth-button" href="/categories/daily/">Check "Daily" Blogs</a>
+                    </div>
+                </div>
+                <div class="column-container">
+                    <div class="column blurb card centered accent-teal" style="height: 100%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" width="60" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 38.6 14.7 74.3 39.6 103.4c-3.5 9.4-8.7 17.7-14.2 24.7c-4.8 6.2-9.7 11-13.3 14.3c-1.8 1.6-3.3 2.9-4.3 3.7c-.5 .4-.9 .7-1.1 .8l-.2 .2 0 0 0 0C1 327.2-1.4 334.4 .8 340.9S9.1 352 16 352c21.8 0 43.8-5.6 62.1-12.5c9.2-3.5 17.8-7.4 25.3-11.4C134.1 343.3 169.8 352 208 352zM448 176c0 112.3-99.1 196.9-216.5 207C255.8 457.4 336.4 512 432 512c38.2 0 73.9-8.7 104.7-23.9c7.5 4 16 7.9 25.2 11.4c18.3 6.9 40.3 12.5 62.1 12.5c6.9 0 13.1-4.5 15.2-11.1c2.1-6.6-.2-13.8-5.8-17.9l0 0 0 0-.2-.2c-.2-.2-.6-.4-1.1-.8c-1-.8-2.5-2-4.3-3.7c-3.6-3.3-8.5-8.1-13.3-14.3c-5.5-7-10.7-15.4-14.2-24.7c24.9-29 39.6-64.7 39.6-103.4c0-92.8-84.9-168.9-192.6-175.5c.4 5.1 .6 10.3 .6 15.5z"/></svg>
+                        <h3 class="card-title">Community</h3>
+                        <p>
+                            Join our thriving community hub. Explore stories, share experiences, and connect with like-minded individuals. Together, we build a supportive online community.
+                        </p>
+                        <a class="button fullwidth-button" href="/categories/community/">Check "Community" Blogs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <!-- search bar -->
+        <div class="row-container">
+            <div class="row">
+                <div class="column-container">
+                    <div class="column blurb card" style="position: relative; left: 50%; transform: translateX(-50%);width: fit-content; padding: 32px 50px;">
+                        <h3 class="welcome-title">
+                            Or search out a specific blog of interest   
+                        </h3>
+                        <form method="get" class="home_search" action="/search">
+                            <div class="et_manage_input" style="margin-top: 15px;">
+                                <input placeholder="Search The Forum" type="text" class="post" name="keywords"
+                                    size="30" />
+                                <label style="color: teal;">Search A Specific Blog</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+
+    
+    <!-- FOOTER SECTION ===================================== -->
+    {% include 'src/utils/footer.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+</body>
+</html>

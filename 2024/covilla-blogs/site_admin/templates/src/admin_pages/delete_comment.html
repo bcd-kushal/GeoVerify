@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load sass_tags %}
+    <meta charset="utf-8" />
+    <title>Confirm Comment Delete: MyBlogs Admin</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'scss/subscribe.scss' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'scss/index.scss' %}"/>
+</head>
+
+<body class="contact">
+    
+    <!-- HEADER SECTION ===================================== -->
+    {% include 'src/admin_utils/header.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+
+    <!-- CONTACT US FORM -->
+    <section>
+        <div class="row-container narrow">
+            <div class="row" style="margin-top: 10vh;">
+                <div class="column-container">
+                    <div class="column centered">
+                        <h1>"{{comment}}"</h1>
+                        <h4 style="margin-bottom: 30px;">By '{{name}}'</em> in: <a>{{blog_title}}</a></h4>
+                        <h2 style="color: rgb(255, 77, 0);">Confirm delete?</h2>
+                        <p class="lead centered">Deleted comment cannot be retrieved back</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-container narrow contact-form">
+            <div id="contact-cards" class="row" style="margin-top: 0; padding-top: 30px;">
+                <div class="column-container"> 
+                    <div class="column blurb accent-red centered" style="padding: 45px 32px;">
+                        <form name="et-contactform" id="et_manage_form"
+                            action="/admin/delete-comment-status/" method="post">
+                            {% csrf_token %}
+                            <div class="" style="display: none;">
+                                <input type="text" name="blog_title" id="" value="{{blog_title}}">
+                                <input type="text" name="name" id="" value="{{name}}">
+                                <input type="text" name="comment" id="" value="{{comment}}">
+                            </div>
+                            <input class="button primary-button fullwidth-button" type="submit" name="Confirm delete"
+                                id="contact-submit" value="Confirm delete" tabindex="100">
+                                <a class="button tertiary-button accent-red" style="background: transparent;" onclick="window.history.back()">Go Back</a>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- FOOTER SECTION ===================================== -->
+    {% include 'src/admin_utils/footer.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+</body>
+
+</html>

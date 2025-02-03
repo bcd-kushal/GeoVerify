@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load sass_tags %}
+    <meta charset="utf-8" />
+    <title>{{tab_title}}</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'scss/subscribe.scss' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'scss/index.scss' %}"/>
+</head>
+
+<body class="contact">
+    
+    <!-- HEADER SECTION ===================================== -->
+    {% include 'src/admin_utils/header.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+
+    <!-- MAIN SECTION -->
+    <section>
+        <div class="row-container narrow">
+            <div class="row">
+                <div class="column-container">
+                    <div class="column centered" style="margin-top: 20vh;">
+                        <h1>{{title}}</h1>
+                        <p class="lead centered">{{subtitle}}</p>
+                        <a class="button tertiary-button accent-red" href="{{back_link}}">{{back_name}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FOOTER SECTION ===================================== -->
+    {% include 'src/admin_utils/footer.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+</body>
+
+</html>

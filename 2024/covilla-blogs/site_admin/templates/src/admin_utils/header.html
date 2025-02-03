@@ -1,0 +1,45 @@
+
+<div id="main-nav" class=" transparent-header  solid-header" style="padding: 0; box-shadow: none;border-bottom: .2px solid #88888850; height: 80px;">
+    <div class="menu-bg-wrapper">
+        <div class="menu-bg"></div>
+        <div class="menu-arrow"></div>
+    </div>
+    <div class="row-container">
+        <a id="logo" href="/admin/dashboard/" style="letter-spacing: 1.5px;font-weight: 990;height: 80px;display: flex;align-items: center; width: fit-content;">
+            Admin:MyBlogs
+        </a>
+        {% if admin %}
+        <nav>
+            <ul class="menu">
+                <li class="menu-wrapper">
+                    <a class="menu-item" href="/admin/create/">create</a>
+                </li>
+                <!-- 
+                <li class="menu-wrapper">
+                    <a class="menu-item" href="/admin/edit/">edit</a>
+                </li>
+                <li class="menu-wrapper">
+                    <a class="menu-item" href="/admin/delete/">delete</a>
+                </li>
+                <li class="menu-wrapper">
+                    <a class="menu-item" href="/admin/comments/">comments</a>
+                </li> -->
+                <li class="menu-wrapper">
+                    <a class="menu-item" href="/admin/dashboard/">manage</a>
+                </li>
+                &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
+                &nbsp;
+                <li class="menu-wrapper">
+                    <a class="menu-item logout" href="/admin/logout/" style="color: rgb(246, 130, 128);">logout</a>
+                </li> 
+            </ul>
+        </nav>
+        {% endif %}
+        <span class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+    </div>
+</div>

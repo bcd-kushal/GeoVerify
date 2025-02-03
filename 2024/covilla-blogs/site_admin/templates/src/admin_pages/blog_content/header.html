@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load sass_tags %}
+    <meta charset="utf-8" />
+    <title>Admin Login: MyBlogs</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'scss/subscribe.scss' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'scss/index.scss' %}"/>
+    
+    <style>
+        #contact-password::file-selector-button{
+            background: #ff4d00;
+            color: #fff;
+            font-weight: 990;
+            font-size: .8rem;
+            outline: none;
+            border: none;
+            padding: 8px 13px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 15px;
+            margin-left: 60px;
+            /* 
+            position: relative;
+            right: 0;
+            left: 50%;
+            transform: translateX(-50%); */
+
+        }
+
+        #contact-password:hover{
+            border: none;
+            color: #000;
+        }
+    </style>
+
+</head>
+
+<body class="contact">
+    
+    <!-- HEADER SECTION ===================================== -->
+    {% include 'src/admin_utils/header.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+
+    <!-- EDIT FORM -->
+    <section>
+        <div class="row-container narrow">
+            <div class="row">
+                <div class="column-container">
+                    <div class="column centered">
+                        <h4 style="color: #ff4c00;">HEADER EDIT FOR</h4>
+                        <h1 style="font-size: 2.7rem;">"{{blog_title}}"</h1>
+                        <p class="lead centered">Continue changing the form and we will update the same.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-container narrow contact-form">
+            <div id="contact-cards" class="row">
+                <div class="column-container"> 
+                    <div class="column blurb card accent-red centered" style="padding: 45px 32px;">
+                        <form name="et-contactform" id="et_manage_form"
+                            action="/admin/edit/header/status/" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="et_manage_input">
+                                <input type="text" id="contact-email" placeholder="Blog Title" autocomplete="off"
+                                    name="blog_title" value="{{blog_title}}"  required>
+                                <label style="color: red;">Blog Title</label>
+                            </div>
+                            
+                            <div class="et_manage_input" style="display: none;">
+                                <input type="text" id="contact-email" placeholder="Blog Title" autocomplete="off"
+                                    name="old_blog_title" value="{{blog_title}}" required readonly>
+                            </div>
+                            
+
+
+                            <div class="et_manage_input" style="margin: 15px 0 25px;">
+                                <div class="" style="white-space: nowrap; margin-right: 15px; letter-spacing: 1px; color: #ff4d00; font-weight: 990; font-size: .69rem;"> THUMBNAIL IMAGE </div>
+                                <input type="file" id="contact-password" placeholder="Thumbnail Image" autocomplete="off"
+                                    name="blog_thumbnail" required>
+                                    <label for="contact-password">Select Image</label>
+                            </div>
+
+                            
+                            <div class="et_manage_input et_filled" style="margin-top: 15px;">
+                                <select tabindex="30" id="contact-department" name="blog_tag" required>
+                                    <option value="all" {% if tag|lower == 'all' %} selected {% endif %} >All</option>
+                                    <option value="design" {% if tag|lower == 'design' %} selected {% endif %} >Design</option>
+                                    <option value="tech" {% if tag|lower == 'tech' %} selected {% endif %} >Technology</option>
+                                    <option value="profession" {% if tag|lower == 'profession' %} selected {% endif %} >Profession</option>
+                                    <option value="daily" {% if tag|lower == 'daily' %} selected {% endif %} >Daily</option>
+                                    <option value="life" {% if tag|lower == 'life' %} selected {% endif %} >Life</option>
+                                    <option value="community" {% if tag|lower == 'community' %} selected {% endif %} >Community</option>
+                                </select>
+                                <label style="color: #ff4c00;">Blog Category</label>
+                            </div>
+
+
+                            <input class="button primary-button fullwidth-button" type="submit" name="submit"
+                                id="contact-submit" value="Confirm edit" tabindex="100">
+                                <a class="button tertiary-button accent-teal"  onclick="window.history.back()" style="position: relative;left: 50%;transform: translateX(-50%); background: transparent; width: fit-content; padding-left: 40px; padding-right: 40px;">GO BACK</a>
+                        </form>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- FOOTER SECTION ===================================== -->
+    {% include 'src/admin_utils/footer.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+</body>
+
+</html>

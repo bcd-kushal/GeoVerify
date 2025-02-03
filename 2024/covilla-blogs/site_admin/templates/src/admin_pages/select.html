@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load sass_tags %}
+    <meta charset="utf-8" />
+    <title>{{tab_title}}</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'scss/subscribe.scss' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'scss/index.scss' %}"/>
+    
+    <style>
+
+        .blog{
+            background: rgb(244, 244, 244);
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: space-between;
+            aspect-ratio: 2.6;
+            width: 40%;
+            min-width: 300px;
+            margin: 0px 24px 55px;
+            border-radius: 15px;
+            padding: 20px 0 0;
+            overflow: hidden;
+        }
+
+
+        .blog:hover{
+            box-shadow: 0 0 10px .1px #ff000030;
+        }
+        .blog > *{
+            padding: 0;
+        }
+        .thumbnailBox{
+            width: 70px;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 20px;
+        }
+
+        .thumbnailBox img{
+            width: 100%;
+            border-radius: 8px;
+            border: .5px solid #ff4c00;
+        }
+
+        .crudArea,.blogArea{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 15px 0 7px;
+        }
+
+        button{
+            padding: 3px 20px;
+            border-radius: 7px;
+            background: transparent;
+            outline: none;
+            cursor: pointer;
+        }
+
+        button:hover{
+            color: #ff4c00;
+            background: #ff4c0010;
+        }
+
+        .crudArea{
+            height: 75px;
+            padding-top: 3px;
+        }
+
+        .blogArea{
+            padding: 0;
+            height: calc(100% - 75px);
+        }
+
+        .thumbnailBox{
+            width: 35%;
+        }
+
+        .textArea{
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 8px;
+            align-items: stretch;
+            padding-left: 20px;
+        }
+
+        .detailsArea{
+            display: flex;
+            font-size: .8rem;
+            gap: 8px;
+        }
+
+        .tagArea{
+            border: .5px solid #ff4c00;
+            color: #ff4c00;
+            background: #ff000010;
+            padding: 0 4px;
+            border-radius: 5px;
+        }
+
+        .titleArea{
+            font-size: 1.5rem;
+            font-weight: 990;
+            color: #2b2b2b;
+        }
+
+        .briefArea{
+            font-size: .9rem;
+        }
+    </style>
+
+</head>
+
+<body class="contact">
+    
+    <!-- HEADER SECTION ===================================== -->
+    {% include 'src/admin_utils/header.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+
+    <!-- MAIN SECTION -->
+    
+    <section class="standard-post ">
+
+        <!-- title and search -->
+        <div class="row-container with-editorial-note">
+            <div class="row" style="margin-top: 40px;">
+                <div class="column-container">
+                    <div class="column centered post-header accent-blue">
+                        <h1 style="font-size: 3rem;">{{page_title}}</h1>
+                        <p class="lead" style="text-align: center;">{{page_brief}}</p>
+                        <!-- <form style="margin-top: 30px;" id="search-form" role="search" method="get" id="header_search"
+                            action="/search">
+                            <div class="et_manage_input" >
+                                <input type="text" value placeholder="Search Blogs" name="keywords">
+                                <label style="color: red;">Enter Search Term</label>
+                            </div>
+                        </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row-container wide-width blog-index">
+            <div class="row two-column small-gutters" style="display: flex;justify-content: center;">
+                {% for x in blogs %}
+                <div class="blog">
+
+                    <div class="blogArea">
+
+                        <div class="thumbnailBox">
+                            <img src="../../../../media/{{x.thumbnail}}" alt="">
+                        </div>
+    
+                        <div class="textArea">
+                            <div class="titleArea">{{x.title}}</div>
+                            <div class="detailsArea">
+                                <div class="tagArea">{{x.tag}}</div>
+                                <div class="commentArea" style="font-weight: 990;font-size: 1rem;"> • {{x.comments}} comments</div>
+                            </div>
+                        </div>
+    
+
+
+                    </div>
+
+
+                    <div class="crudArea">
+                        <form action="{{form_action}}" method="post">
+                            {% csrf_token %}
+                            <div class="" style="display: none;">
+                                <input type="text" name="blog_name" id="" value="{{x.title}}" readonly>
+                            </div>
+                            <button type="submit">
+                                Select
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+    </section>
+
+    
+
+
+
+
+
+
+
+
+
+    <!-- FOOTER SECTION ===================================== -->
+    {% include 'src/admin_utils/footer.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load sass_tags %}
+    <meta charset="utf-8" />
+    <title>Thank You</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% sass_src 'scss/subscribe.scss' %}"/>
+    <link rel="stylesheet" href="{% sass_src 'scss/index.scss' %}"/>
+</head>
+
+<body class="contact">
+    
+    <!-- HEADER SECTION ===================================== -->
+    {% include 'src/utils/header.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+
+
+    <!-- MAIN SECTION -->
+    <section>
+        <div class="row-container narrow">
+            <div class="row">
+                <div class="column-container">
+                    <div class="column centered" style="margin-top: 20vh;">
+                        <h1>{{title}}</h1>
+                        <p class="lead centered">{{subtitle}}</p>
+                        <a class="button tertiary-button accent-teal" href="/">GO BACK</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FOOTER SECTION ===================================== -->
+    {% include 'src/utils/footer.html' %}
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+
+</body>
+
+</html>
